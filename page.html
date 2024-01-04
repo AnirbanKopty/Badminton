@@ -13,8 +13,9 @@
     
     <link rel="stylesheet" href="theme.css"> <!-- Put theme before style -->
     <link rel="stylesheet" href="style.css"> <!-- So that style has access to theme variables-->
-
+    
     <script src="script.js" defer></script>
+    <script src="cards.js" defer></script>
 </head>
 <body class="theme-light"> <!-- See "theme.js" for possible themes-->
     <div class="page">
@@ -26,7 +27,7 @@
                 <!-- If tabs not wanted, add "hide" -->
                 <!-- For extra tabs just add extra divs, CSS and JS will handle the rest -->
                 <div class="tabbar">
-                    <div class="tab active">Tab 1</div>
+                    <div class="tab active" onclick="ChangeTheme()">DARK MODE</div>
                     <div class="tab">Tab 2</div>
                     <!-- <div class="tab">Tab 3</div> -->
                     <!-- <div class="tab">Tab 4</div> -->
@@ -42,75 +43,84 @@
         <div class="shelf">
             <div class="content">
                 <!-- Add Varaious Cards here -->
-                <div class="card section span2">Section</div>
+
+
+                <!-- Done : AddCategory()-->
+                <!-- variables-->
+                <!-- single or double-->
+                <!-- men or woman-->
+                <!-- Category name-->
+                <!-- live hide or not-->
+                <div class="card game-category double men">
+                        <div class="text">
+                            <div class="name">Mens Single</div>
+                            <div ><span class="live">LIVE</span></div>
+                        </div>
+
+                        <div class="icon material-symbols-outlined">
+
+                        </div>
+                </div>
+
+
+
+                <!-- New Card -->
+                <div class="card game-event single">
+                   <div class="schedule">
+                       <div class="match-no">Match 1</div>
+                       <div class="date">05 Jan</div>
+                       <div class="time">6:00 PM</div>
+                   </div>
+                   <div class="team">
+                    
+                   </div>
+                   <div class="result">
+                        Game displayed result here.
+                   </div>
+                </div>
                 
-                <div class="card text span2">This is few lines of text describing section.</div>
-                <div class="card text span2">Default Card</div>
+                <div class="card game-event double">
+                    <div class="schedule">
+                       <div class="match-no">Match 1</div>
+                       <div class="date">05 Jan</div>
+                       <div class="time">6:00 PM</div>
+                    </div>
+                    <div class="team">
+                     
+                    </div>
+                    <div class="result">
+                        Game displayed result here.
+                    </div>
+                 </div>
+                 
+
                 
-                <div class="card"></div>
-                
-                <div class="card section span2">Player Cards</div>
-                
-                <!-- will be processed by JS -->
-                <div class="card text span2">Single</div>
-                <div class="card players single">
-                    <div class="name male">Lorem Ipsum</div>
+
+
+                <div class="card section span2">Javascript</div>
+
+
+                <!--
+                <div class="card category single men">
+                    <div>name</div>Mens Single
                 </div>
-                <div class="card players single">
-                    <div class="name female">Lorem Ipsum</div>
+                <div class="card category single women highlight">
+                    Womens Single
                 </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
+                <div class="card category double men">
+                    Mens Double
                 </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
+                <div class="card category double women">
+                    Womens Double
                 </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
-                </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
-                </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
-                </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
-                </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
-                </div>
-                <div class="card players single">
-                    <div class="name">Lorem Ipsum</div>
+                <div class="card category double mix">
+                    Mix Doubles
                 </div>
 
-                <div class="card text span2">Doubles</div>
-
-                <div class="card players double">
-                    <div class="name male">Lorem Ipsum</div>
-                    <div class="name male">Lorem Ipsum</div>
+                <div class="card section span2">
+                    Event Cards
                 </div>
-
-                <div class="card players double">
-                    <div class="name female">Lorem Ipsum</div>
-                    <div class="name female">Lorem Ipsum</div>
-                </div>
-
-                <div class="card players double">
-                    <div class="name male">Lorem Ipsum</div>
-                    <div class="name female">Lorem Ipsum</div>
-                </div>
-
-                <div class="card section span2">Category Cards</div>
-                
-                <div class="card category single men">Mens Single</div>
-                <div class="card category single women highlight">Womens Single</div>
-                <div class="card category double men">Mens Double</div>
-                <div class="card category double women">Womens Double</div>
-                <div class="card category double mix">Mix Doubles</div>
-
-                <div class="card section span2">Event Cards</div>
-
+            -->
                 <!-- Add Varaious Cards here -->
             </div>
         </div>

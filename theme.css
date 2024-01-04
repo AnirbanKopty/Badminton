@@ -4,22 +4,43 @@
 
     /* Element specific : derived from above */
     --banner:var(--major);
-    --banner-title-color:rgba(255,255,255,0.8);
+    --banner-title-color:rgba(255,255,255,0.5);
+    
     --tab-text-color:rgba(255,255,255,0.9);
     --tab-background-color:rgba(255,255,255,0.05);
     --tab-hover-background:rgba(255,255,255,0.1);
     --tab-active-background:rgba(255,255,255,0.2);
     --tab-separators:rgba(255,255,255,0.3);
 
-    --wall:rgb(198, 107, 210);
-    --card:rgb(220,220,220);
+    --shelf-background:rgba(255, 255, 255, 0);
+    --card-background:rgba(0,0,0,0.1);
+    --card-section-color:rgba(0,0,0,0.7);
+    --card-text-color:rgba(0, 0, 0, 0.7);
+    --card-player-color:rgba(0,0,0,1);
     
 }
 
 
-/*
+
 .theme-dark{
-    --banner-color:rgba(32,32,32);
-    --btn-color:rgb(64,64,64);
+    /* --major:rgb(0, 0, 0); */
+    /* --major:#3f3f3f; */
+    --major:rgb(75, 0, 88);
+    /* --minor:rgb(117, 0, 138); */
+    
+    /* Element specific : derived from above */
+    --banner:var(--major);
+    --banner-title-color:rgba(255, 255, 255, 0.5);
+
+    --tab-text-color:rgba(255,255,255,0.9);
+    --tab-background-color:rgba(255,255,255,0.05);
+    --tab-hover-background:rgba(255,255,255,0.1);
+    --tab-active-background:rgba(255,255,255,0.2);
+    --tab-separators:rgba(255,255,255,0.3);
+    
+    --shelf-background:#121212;
+    --card-background:#282828;
+    --card-section-color:rgba(255, 255, 255, 0.7);
+    --card-text-color:rgba(255, 255, 255, 0.7);
+    --card-player-color:rgba(255,255,255,1);
 }
-*/

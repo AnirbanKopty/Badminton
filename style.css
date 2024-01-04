@@ -45,6 +45,7 @@ html,body{height: 100%;}
     overflow: scroll;
     display: grid;
     grid-template-columns: 1fr;
+    background-color: var(--shelf-background);
 }
 @media (orientation: portrait) {.shelf {--padding: 2rem;}}
 @media (orientation: landscape) {.shelf {--padding: 4rem;}}
@@ -157,11 +158,11 @@ html,body{height: 100%;}
 
 /* === SHELF CONTENT ====================== */
 .page .shelf .content{
-        display: grid;
+        display: grid;  /* grid needed for two column layout*/
         grid-template-columns: 1fr;
         row-gap: 1rem;
         column-gap: 1rem;
-        /* margin-top: 2rem; */
+        margin-top: 2rem;
     
         /* justify-content: center; */
 }
@@ -171,7 +172,7 @@ html,body{height: 100%;}
 /* === CARDS*/
 .card{
     --height:10rem;   /* Will be set by cards, disable for flexible*/
-    background-color: rgba(0,0,0,0.1);
+    background-color: var(--card-background);
     height: var(--height);   /* Latter Modif*/
     border-radius: 1rem;
 }
@@ -186,7 +187,8 @@ html,body{height: 100%;}
     text-align: center;
     font-size: 1.5rem;
     line-height: 2rem;
-    color: rgba(0,0,0,0.7);
+    color: var(--card-section-color);
+    /* background-color: red; */
 }
 
 /* -------------------------------------------------- text --- */
@@ -197,7 +199,7 @@ html,body{height: 100%;}
     text-align: center;
     text-justify: distribute;
     font-size: 0.9rem;
-    color: rgba(0,0,0,0.7);
+    color: var(--card-text-color);
 }
 
 .card.text.center{text-align: center;}
@@ -209,7 +211,7 @@ html,body{height: 100%;}
     --height:4rem;
     height: var(--height);
     font-family: 'Poppins';
-    color: black;
+    color: var(--card-player-color);
     align-items: center;
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -236,46 +238,132 @@ html,body{height: 100%;}
     color:rgba(0,0,0,0.7)
 }
 
-/* -------------------------------------------------- Category --- */
-.card.category{
+
+
+/* -------------------------------------------------- game-category --- */
+.card.game-category{
     --height:8rem;
     height: var(--height);
     font-family: 'Poppins';
     color: black;
     align-items: center;
+    
     display: grid;
-    grid-template-columns: 1fr 8rem;
-    text-indent: 2rem;
-    font-size: 1.2rem;
+    padding: 2rem;
+    grid-template-columns: 1fr 6rem;
+    
 }
 
+.card.game-category .text .name{font-size: 1.5rem;}
 
-.card.category .icon{
+.card.game-category .text .live{
+    font-size: 0.8rem;
+    color: green;
+    font-weight: 600;
+    background-color: rgba(0,255,0,0.2);
+    padding: 0.05rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    letter-spacing: 0.1rem;
+}
+
+.card.game-category .text .live.hide{display: none;}
+
+.card.game-category .icon{
     font-size: 4rem;
+    text-align: center;
     color: rgba(0,0,0,0.6);
-    font-family: 'Material Symbols Outlined';
-    margin-right: 4rem;
-    /* background-color: red; */
-    letter-spacing: -2rem;
+    letter-spacing: -3rem;
     justify-self: center;
 }
 
 
-.card.category.single.men .icon::after{content: "\e4eb";}
 
-.card.category.single.women .icon::after{content: "\e13e";}
 
-.card.category.double.men .icon::before{content: "\e4eb";}
-.card.category.double.men .icon::after{content: "\e4eb";}
+.card.game-category.single.men .icon::after{content: "\e4eb";}
+.card.game-category.single.women .icon::after{content: "\e13e";}
+.card.game-category.double.men .icon::before{content: "\e4eb";}
+.card.game-category.double.men .icon::after{content: "\e4eb";}
+.card.game-category.double.women .icon::before{content: "\e13e";}
+.card.game-category.double.women .icon::after{content: "\e13e";}
+.card.game-category.double.mix .icon::before{content: "\e4eb";}
+.card.game-category.double.mix .icon::after{content: "\e13e";}
 
-.card.category.double.women .icon::before{content: "\e13e";}
-.card.category.double.women .icon::after{content: "\e13e";}
 
-.card.category.double.mix .icon::before{content: "\e4eb";}
-.card.category.double.mix .icon::after{content: "\e13e";}
-
-.card.category.highlight{
+/*
+.card.game-category.highlight{
     background-color: var(--banner);
     color: white;
 }
-.card.category.highlight .icon{color: rgba(255,255,255,0.8);}
+.card.game-category.highlight .icon{color: rgba(255,255,255,0.8);}
+*/
+
+
+
+/* -------------------------------------------------- game-event --- */
+.card.game-event.single{--height:10.8rem}
+.card.game-event.double{--height:12rem}
+
+
+.card.game-event{
+    --height:12rem;
+    font-family: 'Poppins';
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+
+}
+
+.card.game-event .schedule{
+    height: 2rem;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+} 
+.card.game-event .schedule *:first-child{text-align: left;}
+.card.game-event .schedule *:last-child{text-align: right;}
+
+.card.game-event .schedule .match-no::before,
+.card.game-event .schedule .date::before,
+.card.game-event .schedule .time::before{
+    font-family: 'Material Symbols Outlined';
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+    position: relative;
+    
+}
+
+/* .card.game-event .schedule .match-no::before{content: '\e8b5';} */
+.card.game-event .schedule .date::before{content: '\ebcc';top:0.25rem;}
+.card.game-event .schedule .time::before{content: '\e8b5';top:0.3rem;}
+
+
+.card.game-event .result{
+    height: 2rem;
+    margin-top: 0.4rem;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 2rem;
+
+
+    line-height: 2rem;
+    text-align: center;
+}
+
+
+
+.card.game-event .team{
+    flex-grow: 1;
+    background-color: green;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
+
