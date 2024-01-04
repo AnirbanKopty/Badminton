@@ -254,13 +254,28 @@ html,body{height: 100%;}
     font-size: 4rem;
     color: rgba(0,0,0,0.6);
     font-family: 'Material Symbols Outlined';
-    margin-left: 1rem;
+    margin-right: 4rem;
     /* background-color: red; */
+    letter-spacing: -2rem;
+    justify-self: center;
 }
 
 
-.card.category.men.double .icon::after{content: "\e4eb";}
-.card.category.women.double .icon::after{content: "\e13e";}
-.card.category.women.double .icon::before{content: "\e13e";}
-.card.category.mix.double .icon::before{content: "\e4eb";}
-.card.category.mix.double .icon::after{content: "\e13e";}
+.card.category.single.men .icon::after{content: "\e4eb";}
+
+.card.category.single.women .icon::after{content: "\e13e";}
+
+.card.category.double.men .icon::before{content: "\e4eb";}
+.card.category.double.men .icon::after{content: "\e4eb";}
+
+.card.category.double.women .icon::before{content: "\e13e";}
+.card.category.double.women .icon::after{content: "\e13e";}
+
+.card.category.double.mix .icon::before{content: "\e4eb";}
+.card.category.double.mix .icon::after{content: "\e13e";}
+
+.card.category.highlight{
+    background-color: var(--banner);
+    color: white;
+}
+.card.category.highlight .icon{color: rgba(255,255,255,0.8);}
