@@ -1,3 +1,6 @@
+// DOM shelf->content selection
+shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0]
+
 // Auto detect number of tabs and adjust CSS
 tabbar = document.getElementsByClassName("tabbar")[0]
 num_tabs = tabbar.childElementCount;
@@ -8,14 +11,25 @@ var tabs=document.getElementsByClassName("tab");
 for(let i=0;i<tabs.length;i++){tabs[i].addEventListener('click',function(){TabClick(this);})}
 
 function TabClick(sender){
+    // Tab switching CSS
     for(let i=0;i<tabs.length;i++){tabs[i].classList.remove("active");}
     sender.classList.toggle("active");
+    
+    // Tab interaction
+    if (sender.innerHTML == 'Players'){
+        shelf_content.innerHTML = ""
+        PlayerCards();
+    } else
+    if (sender.innerHTML == 'Schedule'){
+        shelf_content.innerHTML = ""
+        console.log("test from Schedule")
+    } else
+    if (sender.innerHTML == 'Table'){
+        shelf_content.innerHTML = ""
+        Table();
+    }
 }
 
-
-
-
-shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0]
 
 
 // By Anirban
@@ -62,8 +76,9 @@ function AddDoublePlayer(name1, gender1, name2, gender2) {
     shelf_content.innerHTML += html;
 }
 
-function AddCategory(single_or_double, gender, category_name, live) {
-    html = "<div class=\"card game-category "+single_or_double+" "+gender+"\">";
+function AddCategory(single_or_double, gender, category_name, live, href) {
+    html  = "<a href=\"" + href +"\">";
+    html += "<div class=\"card game-category "+single_or_double+" "+gender+"\">";
     html += "<div class=\"text\">";
     html += "<div class=\"name\">"+ category_name +"</div>";
     if (live == true){
@@ -78,8 +93,10 @@ function AddCategory(single_or_double, gender, category_name, live) {
     // <!-- Alignment Issue via HTML -->
     html += " </div>"; /* Add at least one character (even whitespace) otherwise css letter-spacing will break*/
     html += "</div>";
+    html += "</a>";
     shelf_content.innerHTML += html;
 }
+
 
 // 
 // 

@@ -163,8 +163,10 @@ html,body{height: 100%;}
         row-gap: 1rem;
         column-gap: 1rem;
         margin-top: 2rem;
-    
-        /* justify-content: center; */
+
+        /* Hacky fix see later */
+        /* grid-template-rows: repeat(auto-fit, 8rem); */
+        
 }
 @media (min-width:1400px) {.page .shelf .content{grid-template-columns: 1fr 1fr;}}
 
@@ -172,9 +174,14 @@ html,body{height: 100%;}
 /* === CARDS*/
 .card{
     --height:10rem;   /* Will be set by cards, disable for flexible*/
+    --height:auto;   /* Will be set by cards, disable for flexible*/
     background-color: var(--card-background);
     height: var(--height);   /* Latter Modif*/
     border-radius: 1rem;
+
+    flex-grow: 0;
+    /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2); */
+    /* border: 1px solid rgba(0,0,0,0.1); */
 }
 @media (min-width:1400px) {.card.span2{grid-column: span 2;}}
 
@@ -301,17 +308,18 @@ html,body{height: 100%;}
 
 
 /* -------------------------------------------------- game-event --- */
-.card.game-event.single{--height:10.8rem}
-.card.game-event.double{--height:12rem}
+/* .card.game-event.single{--height:10.8rem} */
+/* .card.game-event.double{--height:10.8rem} */
 
 
 .card.game-event{
-    --height:12rem;
+    --height:10.8rem;
     font-family: 'Poppins';
     padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
+    color: rgba(0,0,0,0.8);
 
 }
 
@@ -359,9 +367,61 @@ html,body{height: 100%;}
 
 .card.game-event .team{
     flex-grow: 1;
-    background-color: green;
+    /* background-color: green; */
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.card.game-event .team .left{
+    /* background-color: red; */
+    border-right: 1px solid rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: 1fr 3rem;
+    
+    
+}
+
+.card.game-event .team .right{
+    /* background-color: yellow; */
+    border-left: 1px solid rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+}
+
+.card.game-event .team .left .score{margin-right: 0.2rem ;}
+.card.game-event .team .right .score{margin-left: 0.2rem ;}
+
+
+.card.game-event .team .score {
+    font-family: 'Anton';
+    font-size: 2rem;
+    color: rgba(0,0,0,0.6);
+    border-radius: 0.5rem;
+    background-color: rgba(0,0,0,0.1);
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+.card.game-event .team .players{
+    /* background-color: green; */
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+.card.game-event .team .left .players{
+    justify-content: left;
+    text-align: left;
+}
+
+.card.game-event .team .right .players{
+    justify-content: right;
+    text-align: right;
 }
 
 
