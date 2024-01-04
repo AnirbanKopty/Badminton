@@ -4,7 +4,12 @@
 
     /* Element specific : derived from above */
     --banner:var(--major);
-    --banner-title:rgba(255,255,255,0.8);
+    --banner-title-color:rgba(255,255,255,0.8);
+    --tab-text-color:rgba(255,255,255,0.9);
+    --tab-background-color:rgba(255,255,255,0.05);
+    --tab-hover-background:rgba(255,255,255,0.1);
+    --tab-active-background:rgba(255,255,255,0.2);
+    --tab-separators:rgba(255,255,255,0.3);
 
     --wall:rgb(198, 107, 210);
     --card:rgb(220,220,220);

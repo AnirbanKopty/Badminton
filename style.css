@@ -1,0 +1,266 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+html,body{height: 100%;}
+
+/* === PAGE ============================ */
+.page{
+    height: 100%;
+    display: flex;  /* Better than grid in terms of synatx from html*/
+    user-select: none;
+}
+@media (orientation: portrait) {.page {flex-direction: column;}}
+@media (orientation: landscape) {.page {flex-direction: row;}}
+
+
+
+
+/* === BANNER ========================== */
+.banner{
+    --padding: 1rem;
+    width: var(--width);
+    height: var(--height);
+    padding: var(--padding);
+
+    z-index: 10;
+    background-color: var(--banner);
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.6);
+}
+/* @media (orientation: portrait) {.banner {--height: 20vh;}} */
+@media (orientation: landscape) {.banner {--width: 40vw;}}
+
+@media (orientation: landscape) {
+    /* Quick Fix */
+    .banner {
+        display: grid;
+        align-items: center;
+        justify-items: center;}
+}
+
+
+
+/* === SHELF ============================ */
+.shelf{
+    --padding: 1rem;
+    padding: var(--padding);
+    flex-grow: 1;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+@media (orientation: portrait) {.shelf {--padding: 2rem;}}
+@media (orientation: landscape) {.shelf {--padding: 4rem;}}
+
+.shelf::-webkit-scrollbar{display: none;}
+
+
+/* === BANNER CONTENT ====================== */
+.banner .content{
+    /* background-color: rgba(255,255,255,0.1); */
+    justify-self: center;
+}
+
+.banner .content .title{
+    color: var(--banner-title-color);
+    font-family: 'Anton';
+    font-size: 2rem;
+    
+}
+
+.banner .content .title.center{text-align: center;}
+
+/* --- TABBAR */
+/* Bug : Breaks for multiple tabbar */
+.banner .content .tabbar{
+    --num-tabs:2;
+    font-family: 'Poppins';
+    font-size: 1.1rem;
+    display: grid;
+    
+}
+@media (orientation: portrait) {
+    .banner .content .tabbar {
+        grid-template-columns: repeat(var(--num-tabs),1fr);
+        /* gap: 1rem; */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+@media (orientation: landscape) {
+    .banner .content .tabbar {
+        grid-template-rows: repeat(var(--num-tabs),1fr);
+        /* gap: 0.5rem; */
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+
+.banner .content .tabbar.hide{display: none;}
+
+
+/* --- TABS */
+.banner .content .tabbar .tab{
+    color: var(--tab-text-color);
+    text-align: center;
+    padding: 0.25rem;
+    background-color: var(--tab-background-color);
+    cursor: pointer;
+}
+@media (orientation: portrait) {
+    .banner .content .tabbar .tab{
+        position: relative;
+        border-right: 1px solid var(--tab-separators);
+    }
+    .banner .content .tabbar .tab:first-child{
+        border-radius: 10rem 0rem 0rem 10rem;
+    }
+    .banner .content .tabbar .tab:last-child{
+        border-radius: 0rem 10rem 10rem 0rem;
+        border-right: 0px;
+    }
+}
+@media (orientation: landscape) {
+    .banner .content .tabbar .tab{
+        width: 15rem;
+        justify-self: center;
+        border-bottom: 1px solid var(--tab-separators);
+    }
+    .banner .content .tabbar .tab:first-child{
+        border-radius: 1rem 1rem 0rem 0rem;
+    }
+    .banner .content .tabbar .tab:last-child{
+        border-radius: 0rem 0rem 1rem 1rem;
+        border-bottom: 0px;
+    }
+}
+
+
+
+
+.banner .content .tabbar .tab.active{
+    background-color: var(--tab-active-background);
+}
+
+.banner .content .tabbar .tab:not(.active):hover{
+    background-color: var(--tab-hover-background);
+}
+
+
+/* --- Banner footer text */
+.banner .content .footer{
+    text-align: center;
+    color: white;
+    font-family: Poppins;
+    font-size: 0.8rem;
+}
+
+
+
+/* === SHELF CONTENT ====================== */
+.page .shelf .content{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+        column-gap: 1rem;
+        /* margin-top: 2rem; */
+    
+        /* justify-content: center; */
+}
+@media (min-width:1400px) {.page .shelf .content{grid-template-columns: 1fr 1fr;}}
+
+
+/* === CARDS*/
+.card{
+    --height:10rem;   /* Will be set by cards, disable for flexible*/
+    background-color: rgba(0,0,0,0.1);
+    height: var(--height);   /* Latter Modif*/
+    border-radius: 1rem;
+}
+@media (min-width:1400px) {.card.span2{grid-column: span 2;}}
+
+
+/* -------------------------------------------------- section --- */
+.card.section{
+    --height:2rem;
+    background-color: transparent;
+    font-family: 'Anton';
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: rgba(0,0,0,0.7);
+}
+
+/* -------------------------------------------------- text --- */
+.card.text{
+    --height: auto;
+    background-color: transparent;
+    font-family: 'Poppins';
+    text-align: center;
+    text-justify: distribute;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.7);
+}
+
+.card.text.center{text-align: center;}
+.card.text.justify{text-align: justify;}
+
+
+/* -------------------------------------------------- players --- */
+.card.players{
+    --height:4rem;
+    height: var(--height);
+    font-family: 'Poppins';
+    color: black;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.card.players.single{--height: 3rem;}
+.card.players.double{--height: 6rem;}
+
+.card.players .name{
+    text-align: left;
+    margin-left: 2rem;
+    /* background-color: red; */
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.card.players.double .name:nth-child(1){
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.card.players .icon{
+    text-align: right;
+    margin-right: 2rem;
+    color:rgba(0,0,0,0.7)
+}
+
+/* -------------------------------------------------- Category --- */
+.card.category{
+    --height:8rem;
+    height: var(--height);
+    font-family: 'Poppins';
+    color: black;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 8rem;
+    text-indent: 2rem;
+    font-size: 1.2rem;
+}
+
+
+.card.category .icon{
+    font-size: 4rem;
+    color: rgba(0,0,0,0.6);
+    font-family: 'Material Symbols Outlined';
+    margin-left: 1rem;
+    /* background-color: red; */
+}
+
+
+.card.category.men.double .icon::after{content: "\e4eb";}
+.card.category.women.double .icon::after{content: "\e13e";}
+.card.category.women.double .icon::before{content: "\e13e";}
+.card.category.mix.double .icon::before{content: "\e4eb";}
+.card.category.mix.double .icon::after{content: "\e13e";}
