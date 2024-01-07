@@ -180,7 +180,15 @@ html,body{height: 100%;}
     /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2); */
     /* border: 1px solid rgba(0,0,0,0.1); */
 }
-@media (min-width:1400px) {.card.span2{grid-column: span 2;}}
+@media (min-width:1400px) {
+    .card.span2{grid-column: span 2;}
+
+    a:has(.card.game-category) {
+        text-decoration: none;
+        grid-column: span 2;
+    }
+
+}
 
 
 /* -------------------------------------------------- section --- */
@@ -282,9 +290,7 @@ html,body{height: 100%;}
 }
 
 
-a {
-    text-decoration: none;
-}
+
 
 .card.game-category.single.men .icon::after{content: "\e4eb";}
 .card.game-category.single.women .icon::after{content: "\e13e";}
@@ -395,7 +401,7 @@ a {
     font-family: 'Anton';
     font-size: 2rem;
     color: rgba(0,0,0,0.6);
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
     /* background-color: rgba(0,0,0,0.1); */
 
     display: grid;
@@ -405,30 +411,95 @@ a {
 
 }
 
+.card.game-event .team .players{display: grid;align-self: center;}
+/* .card.game-event .team .players.single{grid-template-rows: 1fr;}
+.card.game-event .team .players.double{grid-template-rows: 1fr 1fr;} */
 
-.card.game-event .team .players{
-    background-color: green;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    /* align-items: center; */
+.card.game-event .team .left .players{text-align: left;}
+.card.game-event .team .right .players{text-align: right;}
 
+
+.card.game-event .team .left .players .male::before,
+.card.game-event .team .left .players .female::before,
+.card.game-event .team .right .players .male::after,
+.card.game-event .team .right .players .female::after{
+    font-family: 'Material Symbols Outlined';
     position: relative;
+    top: 0.2rem;
 }
 
-.card.game-event .team .left .players{
-    text-align: left;
-    bottom: 0;
+.card.game-event .team .left .players .male::before,
+.card.game-event .team .left .players .female::before{
+    padding-right: 0.5rem;
 }
 
-.card.game-event .team .right .players{
-    text-align: right;
+.card.game-event .team .right .players .male::after,
+.card.game-event .team .right .players .female::after{
+    padding-left: 0.5rem;
+
 }
 
-.card.game-event .team .players > *:first-child{
-    bottom: 0;
-    background-color: yellow;
+
+
+.card.game-event .team .left .players .male::before{content: '\e87c';}
+.card.game-event .team .left .players .female::before{content: '\f8db';}
+.card.game-event .team .right .players .male::after{content: '\e87c';}
+.card.game-event .team .right .players .female::after{content: '\f8db';}
+
+
+
+/* ------------------------------------------------------- Points Table */
+table{
+    font-family: 'Poppins';
+    overflow: hidden;
 }
 
-.card.card.game-event .team .players *:first-child{
-    position: relative;
+/* th,td{background-color: yellow;} */
+
+tr > *{
+    padding: 0.4rem 2rem;
 }
+tr > *:first-child{text-align: left;}
+tr > *:last-child{text-align: right;}
+
+table,th,td{border-collapse: collapse}
+th{border-bottom: 2px solid rgba(0,0,0,0.3);}
+tr{border-bottom: 1px solid rgba(0,0,0,0.3);}
+tr:last-child{border-bottom: none;}
+
+tr th{color: rgba(0,0,0,0.8);}
+tr td{color: rgba(0,0,0,0.8);}
+tr td:last-child{font-family: 'Geologica';}
+
+td .male::before,
+td .female::before{
+font-family: 'Material Symbols Outlined';
+position: relative;
+top:0.1rem;
+margin-right: 0.5rem;
+}
+td .male::before{content: '\e87c';}
+td .female::before{content: '\f8db';}
+
+tr:nth-child(5){border-bottom: 2px solid rgba(0,0,0,0.3);}
+tr:nth-child(2),
+tr:nth-child(3),
+tr:nth-child(4),
+tr:nth-child(5){
+    background-color: rgb(236, 212, 248);
+    background-color: rgb(216, 255, 233);
+}
+
+tr:nth-child(2) td,
+tr:nth-child(3) td,
+tr:nth-child(4) td,
+tr:nth-child(5) td{
+    color: rgba(0,0,0,0.7);
+    font-weight: 600;
+}
+
+tr:first-child{
+    background-color: var(--banner);
+}
+
+tr th{color: white;}

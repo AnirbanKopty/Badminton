@@ -35,20 +35,79 @@ function FillCards(){
     tab = GetActiveTab();
     switch(category) {
         case "mens-single":
-            console.log('hello')
             title.innerText="Men's Single";
+            if (tab == 'Players'){
+                AddSection("Players");
+                MensSinglePlayerCards();
+            } else 
+            if (tab == 'Schedule'){
+                AddSection("Schedule");
+
+            } else
+            if (tab == 'Table'){
+                AddSection("Table");
+
+            }
             break;
         case 'womens-single':
             title.innerText="Women's Single";
+            if (tab == 'Players'){
+                AddSection("Players");
+                WomensSinglePlayerCards();
+            } else
+            if (tab == 'Schedule'){
+                AddSection("Schedule");
+
+            } else 
+            if (tab == 'Table'){
+                AddSection("Table");
+
+            }
             break;
         case 'mens-double':
             title.innerText="Men's Double";
-            break;
+            if (tab == 'Players'){
+                AddSection("Players");
+                MensDoublePlayerCards();
+            } else
+            if (tab == 'Schedule'){
+                AddSection("Schedule");
+
+            } else 
+            if (tab == 'Table'){
+                AddSection("Table");
+
+                }
+                break;
         case 'womens-double':
             title.innerText="Women's Double";
-            break;
+            if (tab == 'Players'){
+                AddSection("Players");
+                WomensDoublePlayerCards();
+            }
+            if (tab == 'Schedule'){
+                AddSection("Schedule");
+
+            } else 
+            if (tab == 'Table'){
+                AddSection("Table");
+
+                }
+                break;
         case 'mix-double':
-            title.innerText="Mix Double";
+            title.innerText="Mixed Double";
+            if (tab == 'Players'){
+                AddSection("Players");
+                MixedDoublePlayerCards();
+            }
+            if (tab == 'Schedule'){
+                AddSection("Schedule");
+
+            } else 
+            if (tab == 'Table'){
+                AddSection("Table");
+
+            }
             break;
         default:
             console.log("case default");
@@ -108,17 +167,15 @@ function AddDoublePlayer(name1, gender1, name2, gender2) {
     shelf_content.innerHTML += html;
 }
 
-function AddCategory(card_title, single_or_double, gender, live,href, span2="span2") {
+function AddCategory(card_title, single_or_double, gender, live, href, span2) {
     html  = "<a href=\"" + href +"\">";
-    console.log(single_or_double + gender);
-    // html += "<div class=\"card game-category " + single_or_double + " " + gender +" " + "\">";
-    html += "<div class=\"card game-category single men\">";
+    html += "<div class=\"card game-category " + single_or_double + " " + gender +" "+ span2 + "\">";
     html += "<div class=\"text\">";
     html += "<div class=\"name\">"+ card_title +"</div>";
     if (live == true){
         html += "<div ><span class=\"live\">LIVE</span></div>";
     } else {
-        html += "<div ><span class=\"live hide\">LIVE</span></div>";
+        // html += "<div ><span class=\"live hide\">LIVE</span></div>"; // note this change
     }
     html += "</div>";
     html += "<div class=\"icon material-symbols-outlined\">";
