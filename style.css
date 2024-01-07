@@ -1,6 +1,7 @@
 *{padding: 0; margin: 0; box-sizing: border-box;}
 html,body{height: 100%;}
 
+
 /* === PAGE ============================ */
 .page{
     height: 100%;
@@ -183,13 +184,17 @@ html,body{height: 100%;}
 @media (min-width:1400px) {
     .card.span2{grid-column: span 2;}
 
-    a:has(.card.game-category) {
+    a:has(.card.game-category.span2) {
         text-decoration: none;
         grid-column: span 2;
     }
 
 }
 
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+}
 
 /* -------------------------------------------------- section --- */
 .card.section{
