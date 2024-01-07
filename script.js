@@ -1,10 +1,18 @@
-// DOM shelf->content selection
-shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0]
-
 // Auto detect number of tabs and adjust CSS
 tabbar = document.getElementsByClassName("tabbar")[0]
-num_tabs = tabbar.childElementCount;
-tabbar.style.setProperty('--num-tabs', num_tabs);
+if(tabbar!=null){
+    num_tabs = tabbar.childElementCount;
+    tabbar.style.setProperty('--num-tabs', num_tabs);
+}
+
+// URL parameters
+urlParams = new URLSearchParams(window.location.search);
+function GetURLParameter(key){return urlParams.get(key);}
+function GetActiveTab(){return document.getElementsByClassName("tab active")[0].innerText}
+
+
+shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
+
 
 // Tab switching
 var tabs=document.getElementsByClassName("tab");
@@ -15,35 +23,59 @@ function TabClick(sender){
     for(let i=0;i<tabs.length;i++){tabs[i].classList.remove("active");}
     sender.classList.toggle("active");
     
-    // Tab interaction
-    if (sender.innerHTML == 'Players'){
-        shelf_content.innerHTML = ""
-        PlayerCards();
-    } else
-    if (sender.innerHTML == 'Schedule'){
-        shelf_content.innerHTML = ""
-        console.log("test from Schedule")
-    } else
-    if (sender.innerHTML == 'Table'){
-        shelf_content.innerHTML = ""
-        Table();
-    }
+    // Tab interaction JS
+    shelf_content.innerHTML = "";
+    FillCards();
 }
+
+// This function is called every time tab is changed
+title=document.getElementsByClassName('title')[0]
+function FillCards(){
+    category = GetURLParameter('category');
+    tab = GetActiveTab();
+    switch(category) {
+        case "mens-single":
+            console.log('hello')
+            title.innerText="Men's Single";
+            break;
+        case 'womens-single':
+            title.innerText="Women's Single";
+            break;
+        case 'mens-double':
+            title.innerText="Men's Double";
+            break;
+        case 'womens-double':
+            title.innerText="Women's Double";
+            break;
+        case 'mix-double':
+            title.innerText="Mix Double";
+            break;
+        default:
+            console.log("case default");
+      }
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
 // By Anirban
 function Gender_Icon(gender){
-    if (gender.toLowerCase() == 'male') {
-        icon = "face";
-    } else if (gender.toLowerCase() == 'female') {
-        icon = "face_3";
-    } else {
-        icon = "transgender";
-    }
+    if (gender.toLowerCase() == 'male') {icon = "face";}
+    else if (gender.toLowerCase() == 'female') {icon = "face_3";}
+    else {icon = "remove";}
     return icon;
 }
 
+// Card Area
 function AddSection(section_name){
     html = "<div class=\"card section span2\">"+section_name+"</div>";
     shelf_content.innerHTML += html;
@@ -76,11 +108,11 @@ function AddDoublePlayer(name1, gender1, name2, gender2) {
     shelf_content.innerHTML += html;
 }
 
-function AddCategory(single_or_double, gender, category_name, live, href) {
+function AddCategory(card_title, single_or_double, gender, live,href, span2="span2") {
     html  = "<a href=\"" + href +"\">";
-    html += "<div class=\"card game-category "+single_or_double+" "+gender+"\">";
+    html += "<div class=\"card game-category " + single_or_double + " " + gender + " span2 " + "\">";
     html += "<div class=\"text\">";
-    html += "<div class=\"name\">"+ category_name +"</div>";
+    html += "<div class=\"name\">"+ card_title +"</div>";
     if (live == true){
         html += "<div ><span class=\"live\">LIVE</span></div>";
     } else {

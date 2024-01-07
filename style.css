@@ -160,12 +160,9 @@ html,body{height: 100%;}
 .page .shelf .content{
         display: grid;  /* grid needed for two column layout*/
         grid-template-columns: 1fr;
-        row-gap: 1rem;
-        column-gap: 1rem;
+        gap: 1rem;
         margin-top: 2rem;
-
-        /* Hacky fix see later */
-        /* grid-template-rows: repeat(auto-fit, 8rem); */
+        height: max-content;
         
 }
 @media (min-width:1400px) {.page .shelf .content{grid-template-columns: 1fr 1fr;}}
@@ -285,7 +282,9 @@ html,body{height: 100%;}
 }
 
 
-
+a {
+    text-decoration: none;
+}
 
 .card.game-category.single.men .icon::after{content: "\e4eb";}
 .card.game-category.single.women .icon::after{content: "\e13e";}
@@ -397,7 +396,7 @@ html,body{height: 100%;}
     font-size: 2rem;
     color: rgba(0,0,0,0.6);
     border-radius: 0.5rem;
-    background-color: rgba(0,0,0,0.1);
+    /* background-color: rgba(0,0,0,0.1); */
 
     display: grid;
     align-items: center;
@@ -408,22 +407,28 @@ html,body{height: 100%;}
 
 
 .card.game-event .team .players{
-    /* background-color: green; */
+    background-color: green;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    align-items: center;
+    /* align-items: center; */
+
+    position: relative;
 }
 
 .card.game-event .team .left .players{
-    justify-content: left;
     text-align: left;
+    bottom: 0;
 }
 
 .card.game-event .team .right .players{
-    justify-content: right;
     text-align: right;
 }
 
+.card.game-event .team .players > *:first-child{
+    bottom: 0;
+    background-color: yellow;
+}
 
-
-
+.card.card.game-event .team .players *:first-child{
+    position: relative;
+}
