@@ -48,6 +48,18 @@ function GetMixedPartnerOf(index){return players[index].mixed_partner;}
 
 // data manipulation for scores and points ----------------
 // creating placeholder for points for everyone
+
+// utility script is never used this way
+// anyway
+// utility script only provide helper function
+// they themselved never execute any code
+// standard namings
+// you come from callin scripts to one function, and only look at that function body
+// not the whole utility script 
+// anyways
+// anyways
+// anyways
+
 for (let i=0;i<players.length;i++){
     if (players[i].category.includes('single')){players[i].points_singles = 0;}
     if (players[i].category.includes('double')){players[i].points_doubles = 0;}
@@ -102,7 +114,7 @@ function CalculatePoints(category){
             //! This works only if whole tournament is in the same month
     
                 if (category.includes('single')){
-                    p1_points = p1_data.points_singles;
+                    p1_points = p1_data.points_singles;    //<-- where are you initialising points_single
                     p2_points = p2_data.points_singles;
                 } else {
                     if (category.includes('mix')){
@@ -121,9 +133,12 @@ function CalculatePoints(category){
                 schedule[d].matches[m].score_diff = score_diff;
                 score_diff_f = score_diff/max_score;
                 if (score_diff_f > 0){p1_points += win_reward_pt;}
-                else if (score_diff_f < 0){p2_points += win_reward_pt;}
+                else if (score_diff_f < 0){p2_points += win_reward_pt;} // but here it gets only once
                 p1_points += score_diff_f;
                 p2_points -= score_diff_f;
+
+                // explain your code and wiring to me after two month
+                // hmmmm
 
 
                 if (category.includes('single')){

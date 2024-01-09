@@ -198,7 +198,7 @@ function AddPoints(single_or_double, names, gender, points){
         }
         
         html += "    </td>";
-        html += "    <td>" + points[i] + "</td>";
+        html += "    <td>" + points[i].toFixed(2) + "</td>";
         html += "</tr>";
     }
 

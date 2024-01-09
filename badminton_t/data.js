@@ -192,8 +192,8 @@ schedule = [
                 player1: ["Gopalkrishna Prabhu"],
                 player2: ["Suprovo Ghosh"],
                 // time: "6:00 PM",
-                score1: [1,0,0],
-                score2: [0,0,0],
+                score1: [5,4,0],
+                score2: [21,21,0],
                 result: ""
             },
             {
@@ -217,8 +217,8 @@ schedule = [
                 category: "mens-single",
                 player1: ["Chayan Mondal"],
                 player2: ["Santosh Bhujpal"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [13,9,0],
                 result: ""
             },
 
@@ -226,8 +226,8 @@ schedule = [
                 category: "mens-double",
                 player1: ["Pushpak Pandey", "Prashant Nishad"],
                 player2: ["Partha Pratim Deka", "Chayan Mondal"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [5,7,0],
+                score2: [21,21,0],
                 result: ""
             },
             {

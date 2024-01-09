@@ -128,7 +128,34 @@ function FillShelf_Players(category){
 
 
 function GetAutoResult(name1,name2,score1,score2){
-    return "Auto Result"
+    result=""
+    // preliminary maintainer input validation
+
+    net_score = score1[0] + score1[1] + score1[2] + score2[0] + score2[1] + score2[2];
+    if(net_score==0){result="No scores available yet."}
+    // ----------------------------------------------------------------------------------------
+    else{
+        team1_win = 0;
+        team2_win = 0;
+
+        if(score1[0]>score2[0]){team1_win+=1;}else{team2_win+=1;}
+        if(score1[1]>score2[1]){team1_win+=1;}else{team2_win+=1;}
+        if(score1[2]>score2[2]){team1_win+=1;}else{team2_win+=1;}
+
+        if(team1_win>team2_win){
+            for (i in name1){
+                result += name1[i];
+                if (i<name1.length-1){result += " & ";}
+            }
+        }else{
+            for (i in name2){
+                result += name2[i];
+                if (i<name2.length-1){result += " & ";}
+            }
+        }
+        result += " win!"
+    }
+    return result;
 }
 
 

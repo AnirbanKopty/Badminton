@@ -212,23 +212,16 @@ schedule = [
                 category: "mens-single",
                 player1: "Chayan Mondal",
                 player2: "Santosh Bhujpal",
-                score1: null,
-                score2: null
+                score1: [21,21],
+                score2: [13,9]
             },
 
             {
                 category: "mens-double",
                 player1: ["Pushpak Pandey", "Prashant Nishad"],
                 player2: ["Partha Pratim Deka", "Chayan Mondal"],
-                score1: null,
-                score2: null
-            },
-            {
-                category: "mens-double",
-                player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
-                player2: ["Manish Kataria", "Suvas Chaudhury"],
-                score1: null,
-                score2: null
+                score1: [5,7],
+                score2: [21,21]
             }
         ]
     },
@@ -265,11 +258,10 @@ schedule = [
                 score1: null,
                 score2: null
             },
-
             {
                 category: "mens-double",
-                player1: ["Tanuman Ghosh", "Om Mestry"],
-                player2: null,
+                player1: ["Bikram Keshari Pradhan", "Mayur Shende"],
+                player2: ["Suprovo Ghosh", "Shivaraj Kandhasamy"],
                 score1: null,
                 score2: null
             },
@@ -289,8 +281,8 @@ schedule = [
         matches: [
             {
                 category: "mens-single",
-                player1: "Pushpak Pandey",
-                player2: "Partha Pratim Deka",
+                player1: "Manish Kataria",
+                player2: "Pushparaj Chakravarti",
                 score1: null,
                 score2: null
             },
@@ -315,11 +307,10 @@ schedule = [
                 score1: null,
                 score2: null
             },
-
             {
-                category: "womens-double",
-                player1: ["Megha Anand", "Meenakshi"],
-                player2: ["Swati Rokade", "Samruddhi Bhandare"],
+                category: "mens-double",
+                player1: ["Tanuman Ghosh", "Om Mestry"],
+                player2: null,
                 score1: null,
                 score2: null
             },
@@ -365,11 +356,10 @@ schedule = [
                 score1: null,
                 score2: null
             },
-
             {
                 category: "mens-double",
-                player1: ["Gopalkrishna Prabhu", "Raghav Gogia"],
-                player2: ["Rahul G", "Swarnim"],
+                player1: ["Chayan Mondal", "Partha Pratim Deka"],
+                player2: ["Manish Kataria", "Suvas Chaudhury"],
                 score1: null,
                 score2: null
             },
@@ -389,8 +379,8 @@ schedule = [
         matches: [
             {
                 category: "mens-single",
-                player1: "Manish Kataria",
-                player2: "Pushparaj Chakravarti",
+                player1: "Pushpak Pandey",
+                player2: "Partha Pratim Deka",
                 score1: null,
                 score2: null
             },
@@ -415,15 +405,20 @@ schedule = [
                 score1: null,
                 score2: null
             },
-
             {
-                category: "mens-double",
-                player1: ["Bikram Keshari Pradhan", "Mayur Shende"],
-                player2: ["Suprovo Ghosh", "Shivaraj Kandhasamy"],
+                category: "womens-double",
+                player1: ["Megha Anand", "Meenakshi"],
+                player2: ["Swati Rokade", "Samruddhi Bhandare"],
                 score1: null,
                 score2: null
             },
             {
+                category: "mens-double",
+                player1: ["Gopalkrishna Prabhu", "Raghav Gogia"],
+                player2: ["Rahul G", "Swarnim"],
+                score1: null,
+                score2: null
+            },{
                 category: "mens-double",
                 player1: ["Chayan Mondal", "Partha Pratim Deka"],
                 player2: ["Manish Kataria", "Suvas Chaudhury"],
@@ -441,6 +436,13 @@ schedule = [
                 category: "mens-double",
                 player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
                 player2: ["Santosh Bhujpal", "Rajesh Parmar"],
+                score1: null,
+                score2: null
+            },
+            {
+                category: "mens-double",
+                player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
+                player2: ["Manish Kataria", "Suvas Chaudhury"],
                 score1: null,
                 score2: null
             }
