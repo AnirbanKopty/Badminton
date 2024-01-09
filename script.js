@@ -33,6 +33,7 @@ title=document.getElementsByClassName('title')[0]
 function FillCards(){
     category = GetURLParameter('category');         
     tab = GetActiveTab();
+    
     switch(category) {
         case "mens-single":
             title.innerText="Men's Single";

@@ -6,15 +6,8 @@ function Gender_Icon(gender){
 }
 
 // Card Area
-function AddSection(section_name){
-    html = "<div class=\"card section span2\">"+section_name+"</div>";
-    shelf_content.innerHTML += html;
-}
-
-function AddText(text){
-    html = "<div class=\"card text span2 \">" + text+"</div>";
-    shelf_content.innerHTML += html;
-}
+function AddSection(section_name){shelf_content.innerHTML += "<div class=\"card section span2\">"+section_name+"</div>";}
+function AddText(text){shelf_content.innerHTML += "<div class=\"card text span2 \">" + text+"</div>";}
 
 
 function AddSinglePlayer(name, gender){
