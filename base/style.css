@@ -688,3 +688,58 @@ td .female{
 .card.game-event.highlight .score div.extra-grey{
     color: rgba(255,255,255,0.3);
 }
+
+
+
+
+/* ---------------------------------- credits */
+
+.card.credits{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins';
+    padding: 1rem 2rem;
+}
+
+.card.credits > *{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.card.credits .para:not(:first-child){margin-top: 2rem;}
+
+.card.credits .para>*:first-child{
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10rem;
+    padding: 0.2rem;
+}
+
+.card.credits .para>*:not(:first-child){margin-top: 0.2rem;}
+
+
+.card.credits .para>div:first-child{position: relative;}
+
+.card.credits .para>div:first-child::before,
+.card.credits .para>div:first-child::after{
+    font-family: 'Material Symbols Outlined';
+    position: absolute;    
+    top: 0.4rem;
+}
+
+.card.credits .para>div:first-child::before{
+    left: 1rem;
+}
+.card.credits .para>div:first-child::after{
+    right: 1rem;
+}
+
+
+.card.credits .para .header1::before{content: '\e40a';}
+.card.credits .para .header1::after{content: '\ea3b';}
+
+.card.credits .para .header2::before{content: '\eb7e';}
+.card.credits .para .header2::after{content: '\eb7c';}
+
+.card.credits .para .header3::before{content: '\e179';}
+.card.credits .para .header3::after{content: '\e6b1';}
+
