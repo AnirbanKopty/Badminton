@@ -73,10 +73,18 @@ function DivRoundFromScore(round,score){
     return `<div class="round${round.toString()} ${extra_grey}">${score}</div>`;
 }
 
+function DivName(data,team_index){
+    html =`<div class="${data.team[team_index].gender[0]}">${data.team[team_index].name[0]}</div>`
+    if (data.single_or_double=="double"){
+        html += `<div class="${data.team[team_index].gender[1]}">${data.team[team_index].name[1]}</div>`
+    }
+    return html;
+}
+
 function InjectCard_Event(data){
     shelf_content.innerHTML +=
     `
-    <div class="card game-event">
+    <div class="card game-event ${data.highlight}">
         <div class="schedule">
             <div class="match-no">Match ${data.matchno.toString()}</div>
             <div class="date">${data.date}</div>
@@ -85,11 +93,10 @@ function InjectCard_Event(data){
 
         <div class="team">
             <div class="top">
-                <div class="${data.team[0].gender[0]}">${data.team[0].name[0]}</div>
-                <div class="${data.team[0].gender[1]}">${data.team[0].name[1]}</div>
+                ${DivName(data,0)}
             </div>
 
-            <div class="score">
+            <div class="score ${data.hideresult}">
                 <div class="top">
                     ${DivRoundFromScore(1,data.team[0].score[0])}
                     ${DivRoundFromScore(2,data.team[0].score[1])}
@@ -103,11 +110,10 @@ function InjectCard_Event(data){
             </div>
     
             <div class="bottom">
-                <div class="${data.team[1].gender[0]}">${data.team[1].name[0]}</div>
-                <div class="${data.team[1].gender[1]}">${data.team[1].name[1]}</div>
+                ${DivName(data,1)}
             </div>
         </div>
-        <div class="result">${data.result}</div>
+        <div class="result ${data.hideresult}">${data.result}</div>
     </div>    
     `
 }
@@ -116,11 +122,11 @@ function InjectCard_Event(data){
 //-------------------------------------------------------------------
 function GenerateTableRows(teams){
     rows = "";
-    for (t=0;t<teams.length;t++){
+    for (let t=0;t<teams.length;t++){
         team = teams[t]
         row = "<tr>"
         row +=      "<td>"
-            for (p=0;p<team.names.length;p++){
+            for (let p=0;p<team.names.length;p++){
                 row += `<div class="${team.gender[p]}">${team.names[p]}</div>`
             }
         row +=      "</td>"

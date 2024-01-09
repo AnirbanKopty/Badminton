@@ -14,8 +14,6 @@ function GetActiveTab(){return document.getElementsByClassName("tab active")[0].
 shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
 
 
-
-
 // Tab switching
 var tabs=document.getElementsByClassName("tab");
 for(let i=0;i<tabs.length;i++){tabs[i].addEventListener('click',function(){TabClick(this);})}
@@ -30,18 +28,17 @@ function TabClick(sender){
     FillCards();
 }
 
-console.log("testttttttttttttt");
+// // on load
 
 // This function is called every time tab is changed
 title=document.getElementsByClassName('title')[0]
 function FillCards(){
     category = GetURLParameter('category');         
+    // CalculatePoints(category);
     tab = GetActiveTab();
-    console.log("hello")
     
     switch(category) {
         case "mens-single":
-            console.log(tab);
             title.innerText="Men's Single";
             if (tab == 'Players'){
                 AddSection("Players");
@@ -49,14 +46,18 @@ function FillCards(){
             } else 
             if (tab == 'Schedule'){
                 AddSection("Schedule");
-                console.log(category);
+                // EventCards_test();
                 EventCards(category);
                 
             } else
             if (tab == 'Table'){
+
+                // 
+
                 AddSection("Table");
                 // Table_test();    
                 Table('single', 'male');    
+                // Table('single', 'male', );    
                 
             }
             break;
@@ -73,7 +74,7 @@ function FillCards(){
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-                Table('singles', 'female');
+                Table('single', 'female');
                 
             }
             break;
@@ -90,7 +91,7 @@ function FillCards(){
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-                
+                Table('double', 'male');
             }
             break;
         case 'womens-double':
@@ -151,9 +152,9 @@ function ChangeTheme(){
 
 
 
-window.onload = function() { 
-    ShowCategory();
-};
+// window.onload = function() { 
+//     ShowCategory();
+// };
 
 
 

@@ -1,6 +1,6 @@
 function Gender_Icon(gender){
-    if (gender.toLowerCase() == 'male') {icon = "face";}
-    else if (gender.toLowerCase() == 'female') {icon = "face_3";}
+    if (gender.toLowerCase() == 'male' || gender.toLowerCase() == 'men') {icon = "face";}
+    else if (gender.toLowerCase() == 'female' || gender.toLowerCase() == 'women') {icon = "face_3";}
     else {icon = "remove";}
     return icon;
 }
@@ -147,7 +147,7 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
             team2_win = 0;
             result = "";
 
-            if(score1[0]>score2[0]){console.log("test"); team1_win+=1;}
+            if(score1[0]>score2[0]){team1_win+=1;}
             else{team2_win+=1;}
 
             if(score1[1]>score2[1]){team1_win+=1;}
@@ -177,30 +177,6 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
     shelf_content.innerHTML += html;
 }
 
-function CalculatePoints(category){
-    
-    date_today = parseInt(GetDate().split(" ")[0]);
-    // category : "mens singles", ...
-    indices = GetIndicesSchedule(category);
-
-    
-    for (i in indices){
-        i = parseInt(i)
-        // match_date = parseInt([indices[i][0]].date.split(" ")[0]);
-        player1 = schedule[indices[i][0]].matches[indices[i][1]].player1;
-        player2 = schedule[indices[i][0]].matches[indices[i][1]].player2;
-        score1 = schedule[indices[i][0]].matches[indices[i][1]].score1;
-        score2 = schedule[indices[i][0]].matches[indices[i][1]].score2;
-        // time = schedule[indices[i][0]].matches[indices[i][1]].time;
-
-        console.log(players[GetIndex(player1)]);
-    
-        // if (date_today > match_date){
-        //     //! This works only if whole tournament is in the same month,
-
-        // }
-    }
-}
 
 
 function AddPoints(single_or_double, names, gender, points){
@@ -215,25 +191,21 @@ function AddPoints(single_or_double, names, gender, points){
         html += "    <td>";
 
         if (single_or_double.toLowerCase() == 'single'){
-            html += "        <div class="+ gender +">" + names[i] + "</div>";
+            html += "        <div class=\""+ gender +"\">" + names[i] + "</div>";
         }else if (single_or_double.toLowerCase() == 'double'){
-            html += "        <div class="+ gender[0] +">" + names[i][0] + "</div>";
-            html += "        <div class="+ gender[1] +">" + names[i][1] + "</div>";
+            html += "        <div class=\""+ gender[0] +"\">" + names[i][0] + "</div>";
+            html += "        <div class=\""+ gender[1] +"\">" + names[i][1] + "</div>";
         }
         
-        // // html += "        <div class="+ gender[1] +">" + names[i+1] + "</div>";
         html += "    </td>";
         html += "    <td>" + points[i] + "</td>";
         html += "</tr>";
-        // // i+=1
     }
 
     html += "</table>";
-    html += "<div class=\"card text span2\">Top 4 will qualify for semi-finals.</div>";
+    // html += "<div class=\"card text span2\">Top 4 will qualify for semi-finals.</div>";
 
     shelf_content.innerHTML += html;
 }
 
 
-// Testing
-CalculatePoints("mens singles");

@@ -8,7 +8,7 @@
     <!-- Google Prefabs-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Anton&family=Fugaz+One&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica&family=Poppins&family=Anton&family=Fugaz+One&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     
     <link rel="stylesheet" href="../base/theme.css"> <!-- Put theme before style -->
@@ -18,7 +18,7 @@
     <script src="utility.js" defer></script>
     <script src="inject.js" defer></script>
     <script src="cards.js" defer></script>
-    <script src="../base/script.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body class="theme-light"> <!-- See "theme.js" for possible themes-->
     <div class="page">
@@ -54,7 +54,11 @@
 </body>
 
 <script>
-    window.onload = function() {FillCards();};
+    window.onload = function() { 
+    FillCards();
+    category = GetURLParameter('category');         
+    CalculatePoints(category);
+};
 </script>
 
 </html>

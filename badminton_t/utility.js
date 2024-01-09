@@ -8,7 +8,7 @@ function GetDate(){
 function GetIndices(category,gender){
     // cannot handle gender to be an array
     indices = [];
-    for (i=0;i<players.length;i++){
+    for (let i=0;i<players.length;i++){
         if (players[i].category.map(s => s.toLowerCase()).includes(category)){
             if (gender==null){indices.push(i)}
             else if (players[i].gender.toLowerCase()==gender.toLowerCase()){indices.push(i);}       
@@ -20,8 +20,8 @@ function GetIndices(category,gender){
 function GetIndicesSchedule(category){
     indices = [];
     // console.log(schedule[1].matches[1].category);
-    for (i=0;i<schedule.length;i++){
-        for (j=0;j<schedule[i].matches.length;j++){
+    for (let i=0;i<schedule.length;i++){
+        for (let j=0;j<schedule[i].matches.length;j++){
             if (schedule[i].matches[j].category.toLowerCase() == category){
                 indices.push([i,j]);
             }
@@ -36,6 +36,7 @@ function GetNames(indices){return indices.map(i => players[i].name)}
 function GetGenders(indices){return indices.map(i => players[i].gender)}
 function GetCategory(indices){return indices.map(i => players[i].category)}
 function GetPartner(indices){return indices.map(i => players[i].partner)}
+function GetMixedPartner(indices){return indices.map(i => players[i].mixed_partner)}
 // These functions, using 'map', can't handle if single index is given
 
 

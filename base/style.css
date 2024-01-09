@@ -155,6 +155,38 @@ html,body{height: 100%;}
     font-size: 0.8rem;
 }
 
+/* quickadd for icons in tab */
+.banner .content .tabbar .tab:nth-child(1)::before,
+.banner .content .tabbar .tab:nth-child(2)::before,
+.banner .content .tabbar .tab:nth-child(3)::before{
+    font-family: 'Material Symbols Outlined';
+    position: relative;
+    padding-right: 0.4rem;
+    font-size: 1.1rem;
+}
+.banner .content .tabbar .tab:nth-child(1)::before{
+    content: '\f233';top: 0.15rem;
+}
+.banner .content .tabbar .tab:nth-child(2)::before{
+    content: '\f673';top: 0.15rem;
+}
+.banner .content .tabbar .tab:nth-child(3)::before{
+    content: '\e267';top: 0.15rem;
+}
+/* f20c, e8de, e267 */
+
+@media (orientation: landscape) {
+    .banner .content .tabbar .tab{position: relative;}
+
+    .banner .content .tabbar .tab:nth-child(1)::before,
+    .banner .content .tabbar .tab:nth-child(2)::before,
+    .banner .content .tabbar .tab:nth-child(3)::before{
+        position: absolute;
+        left: 2rem;
+        top: 0.5rem;
+    }
+}
+
 
 
 /* === SHELF CONTENT ====================== */
@@ -162,7 +194,7 @@ html,body{height: 100%;}
         display: grid;  /* grid needed for two column layout*/
         grid-template-columns: 1fr;
         gap: 1rem;
-        margin-top: 2rem;
+        /* margin-top: 2rem; */
         height: max-content;
         
 }
@@ -584,6 +616,10 @@ td .female{
     background-color: rgba(255,255,255,0.1);
 }
 
+.card.game-event .result.hide,
+.card.game-event.highlight .result.hide{
+    display: none;
+}
 
 .card.game-event .team{
     font-size: 1rem;
@@ -628,6 +664,8 @@ td .female{
 
 
 }
+
+.card.game-event .score.hide{display: none;}
 
 .card.game-event .score .top{margin-top: 0.5rem;}
 .card.game-event .score .bottom{margin-bottom: 0.5rem;}

@@ -8,7 +8,7 @@ function GetDate(){
 function GetIndices(category,gender){
     // cannot handle gender to be an array
     indices = [];
-    for (i=0;i<players.length;i++){
+    for (let i=0;i<players.length;i++){
         if (players[i].category.map(s => s.toLowerCase()).includes(category)){
             if (gender==null){indices.push(i)}
             else if (players[i].gender.toLowerCase()==gender.toLowerCase()){indices.push(i);}       
@@ -17,15 +17,14 @@ function GetIndices(category,gender){
     return indices;
 }
 
-function GetIndex(name){for (i=0;i<players.length;i++){if (players[i].name == name){return i;}}}
+function GetIndex(name){for (let i=0;i<players.length;i++){if (players[i].name == name){return i;}}}
 
 function GetIndicesSchedule(category){
     indices = [];
-    // console.log(schedule[1].matches[1].category);
-    for (i=0;i<schedule.length;i++){
-        for (j=0;j<schedule[i].matches.length;j++){
-            if (schedule[i].matches[j].category.toLowerCase() == category){
-                indices.push([i,j]);
+    for (let d=0;d<schedule.length;d++){
+        for (let m=0;m<schedule[d].matches.length;m++){
+            if (schedule[d].matches[m].category.toLowerCase() == category){
+                indices.push([d,m]);
             }
         }
     }
@@ -45,30 +44,107 @@ function GetPartnerOf(index){return players[index].partner;}
 function GetMixedPartnerOf(index){return players[index].mixed_partner;}
 
 
-// Check site, well something appeared by using "null" intead of null (data.js),
-// Not a good solution, I know, but wanted to get around that null.property issue
-// using null where??
-// which property??
-
-// Changed all null to "null" in data.js
-// are, instead of using null kye, I used "null" as a string, exactly,
-// In GetPartnerOf(name), you used name.property
-// in code it was getting executed as null.property, which triggered error
-// just to avoid it, and see whether it works
-// It's not a good solution, just to check, will change it back,
-// Since you finished that GetPartner(index), using this now
-
-// null is uninitiliased
-// "null" is string
-// why use "null"
-// i need to call you tommorow i dont get exactly
-// sure
-
-// function GetGendersOfPartner(name){
-//     partner_name = GetPartnerOf(name)
-//     return GetGenderOf(partner_name);
-// }
 
 
+// data manipulation for scores and points ----------------
+// creating placeholder for points for everyone
+for (let i=0;i<players.length;i++){
+    if (players[i].category.includes('single')){players[i].points_singles = 0;}
+    if (players[i].category.includes('double')){players[i].points_doubles = 0;}
+    if (players[i].category.includes('mixed double')){players[i].points_mixed = 0;}
+}
 
-// console.log( GetNames( [GetIndex('Gopalkrishna Prabhu')].flat() ) );
+// creating placeholder for score difference for every match
+for (let d=0;d<schedule.length;d++){
+    for (let m=0;m<schedule[d].matches.length;m++){
+        schedule[d].matches[m].score_diff = 0;
+    }
+}
+
+
+function CalculatePoints(category){
+    // Calculates the points and push it directly to data.js schedule
+    date_today = parseInt(GetDate().split(" ")[0]);
+    date_today = 10;
+    indices = GetIndicesSchedule(category);
+
+    for (let i in indices){
+        i = parseInt(i);
+        d = indices[i][0];
+        m = indices[i][1];
+        match_date = parseInt(schedule[d].date.split(" ")[0]);
+        match_type = schedule[d].match_type;
+        player1 = schedule[d].matches[m].player1;
+        player2 = schedule[d].matches[m].player2;
+        // time = schedule[d].matches[m].time;
+        score1 = schedule[d].matches[m].score1;
+        score2 = schedule[d].matches[m].score2;
+
+        score1 = [score1].flat()
+        score2 = [score2].flat()
+        player1 = [player1].flat()
+        player2 = [player2].flat()
+        
+        if(score1[0]==null){score1[0]=0;}
+        if(score1[1]==null){score1[1]=0;}
+        if(score1[2]==null){score1[2]=0;}
+        
+        if(score2[0]==null){score2[0]=0;}
+        if(score2[1]==null){score2[1]=0;}
+        if(score2[2]==null){score2[2]=0;}
+        
+        let p1_data = players[GetIndex(player1[0])];
+        let p2_data = players[GetIndex(player2[0])];
+        
+        // All Points logic here --------------------------
+        if (match_type == 'Group Stages'){
+            if (date_today > match_date){
+            //! This works only if whole tournament is in the same month
+    
+                if (category.includes('single')){
+                    p1_points = p1_data.points_singles;
+                    p2_points = p2_data.points_singles;
+                } else {
+                    if (category.includes('mix')){
+                        p1_points = p1_data.points_mixed;
+                        p2_points = p2_data.points_mixed;
+                    } else {
+                        p1_points = p1_data.points_doubles;
+                        p2_points = p2_data.points_doubles;
+                    }
+                }
+    
+                // The logic for points
+                max_score = 21;
+                win_reward_pt = 1;      // win point
+                score_diff = (score1[0] + score1[1] + score1[2] - score2[0] - score2[1] - score2[2]);
+                schedule[d].matches[m].score_diff = score_diff;
+                score_diff_f = score_diff/max_score;
+                if (score_diff_f > 0){p1_points += win_reward_pt;}
+                else if (score_diff_f < 0){p2_points += win_reward_pt;}
+                p1_points += score_diff_f;
+                p2_points -= score_diff_f;
+
+
+                if (category.includes('single')){
+                    p1_data.points_singles = p1_points;
+                    p2_data.points_singles = p2_points;
+                } else {
+                    if (category.includes('mix')){
+                        p1_data.points_mixed = p1_points;
+                        p2_data.points_mixed = p2_points;
+                    } else {
+                        p1_data.points_doubles = p1_points;
+                        p2_data.points_doubles = p2_points;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+// calculating points each time browser loads
+// Not good - we should maintain a data file (json) and update the file
+// CalculatePoints("mens-single");

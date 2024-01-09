@@ -23,7 +23,10 @@ function TabClick(sender){
     FillShelf();
 }
 
-window.onload = function() { FillShelf();};
+window.onload = function() {
+    FillShelf();
+    highlight = document.getElementsByClassName("highlight")[0].scrollIntoView()
+};
 
 
 // -------------------------------------
@@ -53,16 +56,16 @@ function FillShelf(){
         switch (category){
             case "mens-single":
                 title.innerText = "Men's Single";break;
-                case "womens-single":
+            case "womens-single":
                 title.innerText = "Women's Single";break;
-                case "mens-double":
+            case "mens-double":
                 title.innerText = "Men's Double";break;
-                case "womens-double":
+            case "womens-double":
                 title.innerText = "Women's Double";break;
-                case "mix-double":
+            case "mix-double":
                 title.innerText = "Mixed Double";break;
-                default:
-                    console.log("default");
+            default:
+                console.log("default");
         }
 
         switch(tab){
