@@ -42,60 +42,64 @@ function FillCards(){
             } else 
             if (tab == 'Schedule'){
                 AddSection("Schedule");
-                EventCards();                   // !
-
+                // EventCards_test();                   // !
+                EventCards('mens singles');                   // !
+                
             } else
             if (tab == 'Table'){
                 AddSection("Table");
-                Table();                        // !
-
+                // Table_test();                        // !
+                Table('doubles', 'male');                        // !
+                
             }
             break;
-        case 'womens-single':
-            title.innerText="Women's Single";
+            case 'womens-single':
+                title.innerText="Women's Single";
             if (tab == 'Players'){
                 AddSection("Players");
                 PlayerCards('singles', 'female');
             } else
             if (tab == 'Schedule'){
                 AddSection("Schedule");
-
+                EventCards('womens singles');                   // !
+                
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-
+                Table('singles', 'female');                        // !
+                
             }
             break;
-        case 'mens-double':
-            title.innerText="Men's Double";
-            if (tab == 'Players'){
-                AddSection("Players");
-                // MensDoublePlayerCards();
-                PlayerCards('doubles', 'male')
-            } else
-            if (tab == 'Schedule'){
+            case 'mens-double':
+                title.innerText="Men's Double";
+                if (tab == 'Players'){
+                    AddSection("Players");
+                    PlayerCards('doubles', 'male')
+                } else
+                if (tab == 'Schedule'){
                 AddSection("Schedule");
-
+                EventCards('mens doubles');                   // !
+                
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-
-                }
+                
+            }
             break;
-        case 'womens-double':
+            case 'womens-double':
             title.innerText="Women's Double";
             if (tab == 'Players'){
                 AddSection("Players");
-                // WomensDoublePlayerCards();
                 PlayerCards('doubles', 'female')
             }
             if (tab == 'Schedule'){
                 AddSection("Schedule");
-
+                EventCards('womens doubles');                   // !
+                
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-
+                
                 }
             break;
         case 'mix-double':
@@ -107,11 +111,12 @@ function FillCards(){
             }
             if (tab == 'Schedule'){
                 AddSection("Schedule");
-
+                EventCards('mixed doubles');                   // !
+                
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-
+                
             }
             break;
         default:

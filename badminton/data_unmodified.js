@@ -31,15 +31,17 @@ players = [
         name: "Rahul G",
         gender: "male",
         designation: "project student",
-        category: ["singles", "doubles"],
+        category: ["singles", "doubles", "mixed doubles"],
         partner: "Swarnim",
+        mixed_partner: null
     },
     {
         name: "Tanuman Ghosh",
         gender: "male",
         designation: "PostDoc",
-        category: ["doubles"],
+        category: ["doubles", "mixed doubles"],
         partner: "Om Mestry",
+        mixed_partner: null
     },
     {
         name: "Rahul Suresh Gaikwad",
@@ -117,8 +119,9 @@ players = [
         name: "Om Mestry",
         gender: "male",
         designation: "others",
-        category: ["singles", "doubles"],
+        category: ["singles", "doubles", "mixed doubles"],
         partner: "Tanuman Ghosh",
+        mixed_partner: null
     },
     {
         name: "Rohan Gaikwad",
@@ -145,8 +148,9 @@ players = [
         name: "Pushparaj Chakravarti",
         gender: "male",
         designation: "project student",
-        category: ["singles", "doubles"],
+        category: ["singles", "doubles", "mixed doubles"],
         partner: "Gautam Upadhay",
+        mixed_partner: null
     },
     {
         name: "Megha Anand",

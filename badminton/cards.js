@@ -42,10 +42,8 @@ function PlayerCards(category, gender){
         }
     } else if (category == 'mixed doubles'){
         for (i in indices){
-            partner = GetMixedPartnerOf(indices[i])
-            // AddDoublePlayer(names[i], gender[0], GetMixedPartner(indices[i]), gender[1])
-            // AddDoublePlayer(names[i], gender[0], GetMixedPartner(indices[i]), GetGenderOf(GetMixedPartner(indices[i])));
-            AddDoublePlayer(names[i], gender[0], partner, GetGenderOf(indices[i]));
+            partner = GetMixedPartnerOf(indices[i]);
+            AddDoublePlayer(names[i], 'male', partner, 'female');
         }
     }
 }
@@ -61,50 +59,38 @@ function PlayerCards(category, gender){
 // for double player second name should come from partner
 // use getpartner utility
 
-function MensSinglePlayerCards() {
-    AddSinglePlayer("Anirban Kopty", "mAle");
-    AddSinglePlayer("Anirban Kopty", "mAle");
-    AddSinglePlayer("Anirban Kopty", "mAle");
-    AddSinglePlayer("Anirban Kopty", "mAle");
-    
-}
-function WomensSinglePlayerCards() {
-    AddSinglePlayer("Anirban Kopty", "femAle");
-    AddSinglePlayer("Anirban Kopty", "femAle");
-    AddSinglePlayer("Anirban Kopty", "femAle");
-    AddSinglePlayer("Anirban Kopty", "femAle");
-    
-}
-function MensDoublePlayerCards() {
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "male");
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "male");
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "male");
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "male");
-    
-}
-function WomensDoublePlayerCards(){
-    AddDoublePlayer("Anirban Kopty", "female", "Ranit Behera", "female");
-    AddDoublePlayer("Anirban Kopty", "female", "Ranit Behera", "female");
-    AddDoublePlayer("Anirban Kopty", "female", "Ranit Behera", "female");
-    AddDoublePlayer("Anirban Kopty", "female", "Ranit Behera", "female");
-    
-}
-function MixedDoublePlayerCards(){
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "female");
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "female");
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "female");
-    AddDoublePlayer("Anirban Kopty", "male", "Ranit Behera", "female");
-
-}
 
 // Schedules
-function EventCards() {
-    AddEvent("Match 1", "05 Jan", "6:00 PM", ["Anirban Kopty", "Ranit Behera"], ["Gopal Prabhu", "Sudhir Gholap"], ["male", "male"], 12, 10);
-    AddEvent("Match 1", "05 Jan", "6:00 PM", ["Anirban Kopty", "Ranit Behera"], ["Gopal Prabhu", "Sudhir Gholap"], ["male", "male"], 12, 10, "Team 1");
+function EventCards_test() {
+    AddEvent("Match 1", "5 Jan", "6:00 PM", ["Anirban Kopty", "Ranit Behera"], ["Gopal Prabhu", "Sudhir Gholap"], ["male", "male"], [12,10,10], [10,10,10]);
+    AddEvent("Match 1", "5 Jan", "6:00 PM", ["Anirban Kopty"], ["Ranit Behera"], "male", [12,10, null], [10,11]);
+    AddEvent("Match 1", "9 Jan", "6:00 PM", "Anirban Kopty", "Ranit Behera", "male", 12, 10, "hello");
+}
+
+//! Now, gotta fetch events from schedule ...
+function EventCards(category){
+    // category = 'mens singles', ...
+    indices = GetIndicesSchedule(category);
+
+    if (category == 'mens singles'){gender = 'male';}
+    if (category == 'womens singles'){gender = 'female';}
+    if (category == 'mens doubles'){gender = ['male', 'male'];}
+    if (category == 'womens doubles'){gender = ['female', 'female'];}
+    if (category == 'mixed doubles'){gender = ['male', 'female'];}
+
+    for (i in indices){
+        i = parseInt(i)
+        player1 = schedule[indices[i][0]].matches[indices[i][1]].player1;
+        player2 = schedule[indices[i][0]].matches[indices[i][1]].player2;
+        date = schedule[indices[i][0]].date;
+        // time = schedule[indices[i][0]].matches[indices[i][1]].time;
+        AddEvent("Match "+(i+1).toString(), date, "6 PM", player1, player2, gender, null, null);
+    }
+
 }
 
 // Tables - testing
-function Table() {
+function Table_test() {
     names = ["Anirban Kopty", "Ranit Behera",
             "Gopal Prabhu", "Sudhir Gholap",
             "Raghav Gogia", "Rajesh Mondal", "Rajesh Maiti"]
@@ -119,3 +105,44 @@ function Table() {
     points = [4,5,2,5,0,4,2]
     AddPoints("double", names, gender, points)
 }
+
+
+function Table(category, gender, points) {
+    gender = [gender].flat();
+    indices = GetIndices(category, gender[0]);     // gender needs to be a string
+    names = GetNames(indices);
+
+    if (category == 'doubles'){
+        names2 = [];
+        for (i in names) {
+            names2.push([names[i], GetPartner(indices)[i]]);
+        }
+        names = names2;
+    } else if (category == 'mixed doubles'){
+        names2 = [];
+        for (i in names) {
+            names2.push([names[i], GetMixedPartnerOf(indices[i])]);
+        }
+        names = names2;
+    }
+
+    if (points == null){points = Array(indices.length).fill(0);}
+
+    if (category == 'singles'){
+        // ! change the single to singles in css
+        // ! or change singles to single in data
+        // ! or make them equal
+        AddPoints("single", names, gender, points)
+    } else if (category == 'doubles'){
+        for (i in indices){
+            AddPoints("double", names, gender, points)
+        }
+    } else if (category == 'mixed doubles'){
+        for (i in indices){
+            AddPoints("double", names, gender, points)
+        }
+    }
+}
+
+
+// Table('mixed doubles', 'male');

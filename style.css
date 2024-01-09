@@ -642,3 +642,11 @@ td .female{
 
 .card.game-event .score .top{border-bottom: 1px solid rgba(0,0,0,0.3);}
 .card.game-event.highlight .score .top{border-bottom: 1px solid rgba(255,255,255,0.7);}
+
+.card.game-event .score div.extra-grey{
+    color: rgba(0,0,0,0.3);
+}
+
+.card.game-event.highlight .score div.extra-grey{
+    color: rgba(255,255,255,0.3);
+}
