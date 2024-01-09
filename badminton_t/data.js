@@ -4,35 +4,28 @@ players = [
         gender: "male",
         designation: "PhD",
         category: ["doubles"],
-        partner: "Gopalkrishna Prabhu",
-        points_doubles: 0
+        partner: "Gopalkrishna Prabhu"
     },
     {
         name: "Gopalkrishna Prabhu",
         gender: "male",
         designation: "PhD",
         category: ["singles", "doubles"],
-        partner: "Raghav Gogia",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Raghav Gogia"
     },
     {
         name: "Manish Kataria",
         gender: "male",
         designation: "PhD",
         category: ["singles", "doubles"],
-        partner: "Suvas Chaudhury",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Suvas Chaudhury"
     },
     {
         name: "Suprovo Ghosh",
         gender: "male",
         designation: "PhD",
         category: ["singles", "doubles"],
-        partner: "Shivaraj Kandhasamy",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Shivaraj Kandhasamy"
     },
     {
         name: "Rahul G",
@@ -40,8 +33,6 @@ players = [
         designation: "project student",
         category: ["singles", "doubles"],
         partner: "Swarnim",
-        points_singles: 0,
-        points_doubles: 0
     },
     {
         name: "Tanuman Ghosh",
@@ -49,59 +40,47 @@ players = [
         designation: "PostDoc",
         category: ["doubles"],
         partner: "Om Mestry",
-        points_doubles: 0
     },
     {
         name: "Rahul Suresh Gaikwad",
         gender: "male",
         designation: "admin staff",
-        category: ["singles"],
-        points_singles: 0
+        category: ["singles"]
     },
     {
         name: "Shivaraj Kandhasamy",
         gender: "male",
         designation: "scientific staff",
         category: ["singles", "doubles"],
-        partner: "Suprovo Ghosh",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Suprovo Ghosh"
     },
     {
         name: "Mayur Shende",
         gender: "male",
         designation: "PostDoc",
         category: ["singles", "doubles"],
-        partner: "Bikram Keshari Pradhan",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Bikram Keshari Pradhan"
     },
     {
         name: "Chayan Mondal",
         gender: "male",
         designation: "PostDoc",
         category: ["singles", "doubles"],
-        partner: "Partha Pratim Deka",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Partha Pratim Deka"
     },
     {
         name: "Santosh Bhujpal",
         gender: "male",
         designation: "scientific staff",
         category: ["singles", "doubles"],
-        partner: "Rajesh Parmar",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Rajesh Parmar"
     },
     {
         name: "Pushpak Pandey",
         gender: "male",
         designation: "PhD",
         category: ["singles", "doubles"],
-        partner: "Prashant Nishad",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Prashant Nishad"
     },
     {
         name: "Meenakshi",
@@ -109,19 +88,14 @@ players = [
         designation: "PhD",
         category: ["singles", "doubles", "mixed doubles"],
         partner: "Megha Anand",
-        mixed_partner: "Partha Pratim Deka",
-        points_singles: 0,
-        points_doubles: 0,
-        points_mixed: 0
+        mixed_partner: "Partha Pratim Deka"
     },
     {
         name: "Samruddhi Bhandare",
         gender: "female",
         designatin: "scientific staff",
         category: ["singles", "doubles"],
-        partner: "Swati Rokade",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Swati Rokade"
     },
     {
         name: "Partha Pratim Deka",
@@ -129,10 +103,7 @@ players = [
         designation: "PhD",
         category: ["singles", "doubles", "mixed doubles"],
         partner: "Chayan Mondal",
-        mixed_partner: "Meenakshi",
-        points_singles: 0,
-        points_doubles: 0,
-        points_mixed: 0
+        mixed_partner: "Meenakshi"
     },
     {
         name: "Swati Rokade",
@@ -140,10 +111,7 @@ players = [
         designation: "others",
         category: ["singles", "doubles", "mixed doubles"],
         partner: "Samruddhi Bhandare",
-        mixed_partner: "Bikram Keshari Pradhan",
-        points_singles: 0,
-        points_doubles: 0,
-        points_mixed: 0
+        mixed_partner: "Bikram Keshari Pradhan"
     },
     {
         name: "Om Mestry",
@@ -151,24 +119,19 @@ players = [
         designation: "others",
         category: ["singles", "doubles"],
         partner: "Tanuman Ghosh",
-        points_singles: 0,
-        points_doubles: 0
     },
     {
         name: "Rohan Gaikwad",
         gender: "male",
         designation: "others",
-        category: ["singles"],
-        points_singles: 0
+        category: ["singles"]
     },
     {
         name: "Prashant Nishad",
         gender: "male",
         designation: "PhD",
         category: ["singles", "doubles"],
-        partner: "Pushpak Pandey",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Pushpak Pandey"
     },
     {
         name: "Bikram Keshari Pradhan",
@@ -176,10 +139,7 @@ players = [
         designation: "PhD",
         category: ["singles", "doubles", "mixed doubles"],
         partner: "Mayur Shende",
-        mixed_partner: "Swati Rokade",
-        points_singles: 0,
-        points_doubles: 0,
-        points_mixed: 0
+        mixed_partner: "Swati Rokade"
     },
     {
         name: "Pushparaj Chakravarti",
@@ -187,42 +147,35 @@ players = [
         designation: "project student",
         category: ["singles", "doubles"],
         partner: "Gautam Upadhay",
-        points_singles: 0,
-        points_doubles: 0
     },
     {
         name: "Megha Anand",
         gender: "female",
         designation: "PostDoc",
         category: ["singles", "doubles"],
-        partner: "Meenakshi",
-        points_singles: 0,
-        points_doubles: 0
+        partner: "Meenakshi"
     },
-    
+
     {
         name: "Swarnim",
         gender: "male",
         designation: "PhD",
         category: ["doubles"],
         partner: "Rahul G",
-        points_doubles: 0
     },
     {
         name: "Rajesh Parmar",
         gender: "male",
         designation: "others",
         category: ["doubles"],
-        partner: "Santosh Bhujpal",
-        points_doubles: 0
+        partner: "Santosh Bhujpal"
     },
     {
         name: "Gautam Upadhay",
         gender: "male",
         designation: "others",
         category: ["doubles"],
-        partner: "Pushparaj Chakravarti",
-        points_doubles: 0
+        partner: "Pushparaj Chakravarti"
     }
 ]
 
@@ -237,8 +190,8 @@ schedule = [
                 player1: "Gopalkrishna Prabhu",
                 player2: "Suprovo Ghosh",
                 // time: "6:00 PM",
-                score1: [10,11],
-                score2: [13,9]
+                score1: null,
+                score2: null
             },
             {
                 category: "mens singles",
@@ -565,16 +518,12 @@ schedule = [
             {
                 category: "mens doubles",
                 player1: null,
-                player2: null,
-                score1: null,
-                score2: null
+                player2: null
             },
             {
                 category: "womens singles",
                 player1: null,
-                player2: null,
-                score1: null,
-                score2: null
+                player2: null
             }
         ]
     }

@@ -53,45 +53,6 @@ function AddCategory(card_title, single_or_double, gender, live, href, span2="")
 }
 
 
-// function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, winner=null){
-//     html = "<div class=\"card game-event single\">";
-//     html += "                <div class=\"schedule\">";
-//     html += "                    <div class=\"match-no\"> " + match_no + "</div>";
-//     html += "                    <div class=\"date\" >" + date + "</div>";
-//     html += "                    <div class=\"time\">" + time + "</div>";
-//     html += "                </div>";
-//     html += "                <div class=\"team\">";
-//     html += "                        <div class=\"left\">";
-//     html += "                            <div class=\"players\">";
-//     for (i in name1) {
-//         html += "                                <div class=" + gender[i] + ">" + name1[i] + "</div>";
-//     };
-//     html += "                            </div>";
-//     html += "                            <div class=\"score\">"+ score1 +"</div>";
-//     html += "                        </div>";
-//     html += "                        <div class=\"right\">";
-//     html += "                            <div class=\"score\">" + score2 + "</div>";
-//     html += "                            <div class=\"players double\">";
-//     for (i in name2) {
-//         html += "                                <div class=" + gender[i] + ">" + name2[i] + "</div>";
-//     };
-//     html += "                            </div>";
-//     html += "                        </div>";
-//     html += "                </div>";
-//     html += "                <div class=\"result\">";
-//     if (winner === null){
-//         html += "                        Game displayed result here.";
-//     } else {
-//         html += winner + " won!"
-//     }
-//     html += "                </div>";
-//     html += "            </div>";
-//     shelf_content.innerHTML += html;
-// }
-
-
-
-
 // quick hacky fix as round string
 function GetRoundDivHTML(round,score){
     html = "<div class=\"round" + round.toString() + " ";
@@ -216,21 +177,33 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
     shelf_content.innerHTML += html;
 }
 
+function CalculatePoints(category){
+    
+    date_today = parseInt(GetDate().split(" ")[0]);
+    // category : "mens singles", ...
+    indices = GetIndicesSchedule(category);
 
-function UpdateEvent(){
-    // Needed to update the scores manually...
-    // The AddEvent used inside cards.js automatically populates the events
+    
+    for (i in indices){
+        i = parseInt(i)
+        // match_date = parseInt([indices[i][0]].date.split(" ")[0]);
+        player1 = schedule[indices[i][0]].matches[indices[i][1]].player1;
+        player2 = schedule[indices[i][0]].matches[indices[i][1]].player2;
+        score1 = schedule[indices[i][0]].matches[indices[i][1]].score1;
+        score2 = schedule[indices[i][0]].matches[indices[i][1]].score2;
+        // time = schedule[indices[i][0]].matches[indices[i][1]].time;
 
-    // Maybe this checks the conditions for date, if it's today or past, changes
-    // or replaces the Event
+        console.log(players[GetIndex(player1)]);
+    
+        // if (date_today > match_date){
+        //     //! This works only if whole tournament is in the same month,
 
-    // ORRRR, uses match_no as identifier and updates that card,
-    // Though not sure how to "Update" Events after injection of html is done...
+        // }
+    }
 }
 
 
-
-function AddPoints(single_or_double, names, gender, scores){
+function AddPoints(single_or_double, names, gender, points){
     html = "<table class=\"card span2\">";
     html += "<tr>";
     html += "    <th>Name</th>";
@@ -250,7 +223,7 @@ function AddPoints(single_or_double, names, gender, scores){
         
         // // html += "        <div class="+ gender[1] +">" + names[i+1] + "</div>";
         html += "    </td>";
-        html += "    <td>" + scores[i] + "</td>";
+        html += "    <td>" + points[i] + "</td>";
         html += "</tr>";
         // // i+=1
     }
@@ -262,3 +235,5 @@ function AddPoints(single_or_double, names, gender, scores){
 }
 
 
+// Testing
+CalculatePoints("mens singles");

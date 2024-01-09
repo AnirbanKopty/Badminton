@@ -50,7 +50,7 @@ function FillCards(){
             if (tab == 'Table'){
                 AddSection("Table");
                 // Table_test();                        // !
-                Table('doubles', 'male');                        // !
+                Table('singles', 'male');                        // !
                 
             }
             break;
@@ -129,10 +129,6 @@ function FillCards(){
 
 
 
-
-
-
-// 
 // 
 function ChangeTheme(){
     console.log("Test");
@@ -146,9 +142,47 @@ function ChangeTheme(){
     }
 }
 // 
-// 
 
 
 
-//
+window.onload = function() { 
+    ShowCategory();
+};
 
+
+
+
+function FillShelf(){
+    key = GetURLParameter('key');         
+    tab = GetActiveTab().toLowerCase();
+
+    title=document.getElementsByClassName('title')[0];
+
+    switch(key){
+        case "":
+            FillShelf_Tab1(key);break;
+        case "tab2":
+            FillShelf_Tab2(key);break;
+        case "tab2":
+            FillShelf_Tab3(key);break;
+        default:
+            FillShelf_Tab1(key);
+    }
+
+
+
+    shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
+    shelf_content.innerHTML = "";
+
+    switch(true){
+        case (tab=="tab1"):
+            FillShelf_Tab1(key);break;
+        case (tab=="tab2"):
+            FillShelf_Tab2(key);break;
+        case (tab=="tab2"):
+            FillShelf_Tab3(key);break;
+        default:
+            FillShelf_Tab1(key);
+    }
+
+}

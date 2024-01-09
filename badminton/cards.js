@@ -1,4 +1,3 @@
-
 function ShowCategory(){
     AddSection("Category")
     AddCategory("Men's Single","single","men",false,"event.html?category=mens-single")
@@ -8,26 +7,6 @@ function ShowCategory(){
     AddCategory("Mixed Double","double","mix",true,"event.html?category=mix-double", "span2")
 }
 
-
-// Players
-// function PlayerCards2(category, gender){
-//     indices = GetIndices(category, gender);
-//     names = GetNames(indices);
-//     if (category == 'singles'){
-//         for (i in indices){
-//             AddSinglePlayer(names[i], gender)
-//         }GetMixedPartner(indices[i])                //??
-//             AddDoublePlayer(names[i], gender, GetPartner(indices[i]), gender);
-//         }
-//     } else if (category == 'mixed doubles'){
-//         for (i in indices){
-//             partner = GetMixedPartner(indices[i])
-//             // AddDoublePlayer(names[i], gender[0], GetMixedPartner(indices[i]), gender[1])
-//             // AddDoublePlayer(names[i], gender[0], GetMixedPartner(indices[i]), GetGenderOf(GetMixedPartner(indices[i])));
-//             AddDoublePlayer(names[i], gender[0], partner, GetGenders(partner));
-//         }
-//     }
-// }
 
 function PlayerCards(category, gender){
     indices = GetIndices(category, gender);
@@ -72,6 +51,7 @@ function EventCards(category){
     // category = 'mens singles', ...
     indices = GetIndicesSchedule(category);
 
+    // quickfix
     if (category == 'mens singles'){gender = 'male';}
     if (category == 'womens singles'){gender = 'female';}
     if (category == 'mens doubles'){gender = ['male', 'male'];}
@@ -80,11 +60,13 @@ function EventCards(category){
 
     for (i in indices){
         i = parseInt(i)
+        date = schedule[indices[i][0]].date;
         player1 = schedule[indices[i][0]].matches[indices[i][1]].player1;
         player2 = schedule[indices[i][0]].matches[indices[i][1]].player2;
-        date = schedule[indices[i][0]].date;
+        score1 = schedule[indices[i][0]].matches[indices[i][1]].score1;
+        score2 = schedule[indices[i][0]].matches[indices[i][1]].score2;
         // time = schedule[indices[i][0]].matches[indices[i][1]].time;
-        AddEvent("Match "+(i+1).toString(), date, "6 PM", player1, player2, gender, null, null);
+        AddEvent("Match "+(i+1).toString(), date, "6 PM", player1, player2, gender, score1, score2);
     }
 
 }

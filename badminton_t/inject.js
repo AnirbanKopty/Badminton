@@ -1,3 +1,6 @@
+shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
+
+
 //-------------------------------------------------------------------
 function InjectCard_Section(section_name){
     shelf_content.innerHTML += 
@@ -48,15 +51,17 @@ function InjectCard_DoublePlayer(data){
 function InjectCard_Category(data){
     shelf_content.innerHTML +=
     `
-    <div class="card game-category ${data.single_or_double} ${data.men_or_women}">
-        <div class="text">
-            <div class="name">${data.title}</div>
-            <div ><span class="live ${data.live}">LIVE</span></div>
+    <a href=${data.href}>
+        <div class="card game-category ${data.single_or_double} ${data.men_or_women} ${data.span2}">
+            <div class="text">
+                <div class="name">${data.title}</div>
+                <div ><span class="live ${data.live}">LIVE</span></div>
+            </div>
+            <div class="icon material-symbols-outlined">
+                <!-- Icon filled by CSS -->
+            </div>
         </div>
-        <div class="icon material-symbols-outlined">
-            <!-- Icon filled by CSS -->
-        </div>
-    </div>
+    </a>
     `
 }
 

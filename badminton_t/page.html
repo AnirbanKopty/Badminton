@@ -3,58 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badminton Events</title>
+    <title>Badminton 2024</title>
 
     <!-- Google Prefabs-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Anton&family=Fugaz+One&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica&family=Poppins&family=Anton&family=Fugaz+One&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     
-    <link rel="stylesheet" href="../base/theme.css"> <!-- Put theme before style -->
-    <link rel="stylesheet" href="../base/style.css"> <!-- So that style has access to theme variables-->
+    <link rel="stylesheet" href="theme.css"> <!-- Put theme before style -->
+    <link rel="stylesheet" href="style.css"> <!-- So that style has access to theme variables-->
     
-    <script src="data.js" defer></script>
-    <script src="utility.js" defer></script>
+    <script src="script.js" defer></script>
     <script src="inject.js" defer></script>
-    <script src="cards.js" defer></script>
-    <script src="../base/script.js" defer></script>
+    <script src="shelf.js" defer></script>
 </head>
 <body class="theme-light"> <!-- See "theme.js" for possible themes-->
     <div class="page">
         <div class="banner">
             <div class="content">
                 <!-- To align title add "center" -->
-                <div class="title center">Title</div>
+                <div class="title center">Badminton</div>
 
                 <!-- If tabs not wanted, add "hide" -->
                 <!-- For extra tabs just add extra divs, CSS and JS will handle the rest -->
                 <div class="tabbar">
                     <div class="tab active">Players</div>
-                    <div class="tab">Schedule</div>
+                    <div class="tab">Events</div>
                     <div class="tab">Table</div>
                     <!-- <div class="tab">Tab 4</div> -->
                 </div>
                 
 
-                <!-- <div class="footer">
+                <div class="footer">
                     <div>January 2024</div>
-                </div> -->
+                </div>
             </div>
         </div>
 
         <div class="shelf">
             <div class="content">
-                <!-- Handled by JS now to add cards -->
+                <!-- Add Varaious Cards here -->
 
+                <!-- Add Varaious Cards here -->
             </div>
         </div>
 
     </div>
 </body>
-
-<script>
-    window.onload = function() {FillCards();};
-</script>
-
 </html>

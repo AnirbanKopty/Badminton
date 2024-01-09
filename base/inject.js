@@ -1,3 +1,6 @@
+shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
+
+
 //-------------------------------------------------------------------
 function InjectCard_Section(section_name){
     shelf_content.innerHTML += 

@@ -17,8 +17,6 @@ function GetIndices(category,gender){
     return indices;
 }
 
-function GetIndex(name){for (i=0;i<players.length;i++){if (players[i].name == name){return i;}}}
-
 function GetIndicesSchedule(category){
     indices = [];
     // console.log(schedule[1].matches[1].category);
@@ -31,6 +29,7 @@ function GetIndicesSchedule(category){
     }
     return indices;
 }
+// function GetNamesSchedule(indices){return indices.map(i => schedule[i].name)}
 
 
 function GetNames(indices){return indices.map(i => players[i].name)}
@@ -70,5 +69,5 @@ function GetMixedPartnerOf(index){return players[index].mixed_partner;}
 // }
 
 
+// console.log(GetIndicesSchedule('mens singles'));
 
-// console.log( GetNames( [GetIndex('Gopalkrishna Prabhu')].flat() ) );
