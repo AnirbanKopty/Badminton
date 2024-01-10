@@ -25,7 +25,7 @@ function TabClick(sender){
 
 window.onload = function() {
     FillShelf();
-    highlight = document.getElementsByClassName("highlight")[0].scrollIntoView()
+    highlight = document.getElementsByClassName("highlight")[0].scrollIntoView();
 };
 
 

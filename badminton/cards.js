@@ -8,6 +8,64 @@ function ShowCategory(){
 }
 
 
+// data manipulation----------------------------------------------
+
+// // creating placeholder for score difference for every match
+// for (let d=0;d<schedule.length;d++){
+//     for (let m=0;m<schedule[d].matches.length;m++){
+//         schedule[d].matches[m].score_diff = 0;
+//     }
+// }
+
+// to handle duplicates in doubles
+// quickfix: we delete the partner's double entry dynamically from data.js
+function HandleDuplicates(category){
+
+    if (category == 'mixed double'){
+        let indices = GetIndices(category, 'female');
+        for (let i of indices){
+            let ci = players[i].category.indexOf('mixed double');
+            if (ci > -1){players[i].category.splice(ci, 1);}
+        }
+
+    } else if (category == 'double') {
+        let handled_names = [];
+        let indices = GetIndices(category);
+        let names = GetNames(indices);
+        let names2 = [];
+        for (i in names) {
+            names2.push([names[i], GetPartnerOf(indices[i])]);
+        }
+        names = names2;
+        
+        for (let i in indices){
+            let player = names[i][0];
+            let partner = names[i][1];
+    
+            if ( !(handled_names.includes(player)) ) {
+                index_partner = GetIndex(partner);
+                let ci = players[index_partner].category.indexOf('double');
+                if (ci > -1){players[index_partner].category.splice(ci, 1);}
+                handled_names.push(partner);
+            }
+        }
+    }
+    
+}
+
+HandleDuplicates('double');
+HandleDuplicates('mixed double');
+
+// creating placeholder for points for everyone
+for (let i=0;i<players.length;i++){
+    if (players[i].category.includes('single')){players[i].points_singles = 0;}
+    if (players[i].category.includes('double')){players[i].points_doubles = 0;}
+    if (players[i].category.includes('mixed double')){players[i].points_mixed = 0;}
+}
+
+
+
+// cards
 function PlayerCards(category, gender){
     indices = GetIndices(category, gender);
     names = GetNames(indices);
@@ -27,26 +85,8 @@ function PlayerCards(category, gender){
     }
 }
 
-// let me write GetGenderOfPartner(), that's not needed here btw -
-// for mixed doubles there will be issue for double registration
-// can't get it, anyways will check later, lemme test this first
-// okay
-
-// nice - btw, gotta handle duplicate cases - yep utility should handle this, okay!
-// will do that tommorow while testing
-// lets get a working model first - agreed!
-// for double player second name should come from partner
-// use getpartner utility
-
 
 // Schedules
-function EventCards_test() {
-    AddEvent("Match 1", "5 Jan", "6:00 PM", ["Anirban Kopty", "Ranit Behera"], ["Gopal Prabhu", "Sudhir Gholap"], ["male", "male"], [12,10,10], [10,10,10]);
-    AddEvent("Match 1", "5 Jan", "6:00 PM", ["Anirban Kopty"], ["Ranit Behera"], "male", [12,10, null], [10,11]);
-    AddEvent("Match 1", "9 Jan", "6:00 PM", "Anirban Kopty", "Ranit Behera", "male", 12, 10, "hello");
-}
-
-// Now, gotta fetch events from schedule 
 function EventCards(category){
     // category = 'mens singles', ...
     indices = GetIndicesSchedule(category);
@@ -58,80 +98,99 @@ function EventCards(category){
     if (category == 'womens-double'){gender = ['female', 'female'];}
     if (category == 'mix-double'){gender = ['male', 'female'];}
 
-    for (i in indices){
+    
+    let j=0;
+    let k=0;
+    for (let i in indices){
         i = parseInt(i);
         d = indices[i][0];
         m = indices[i][1];
         date = schedule[d].date;
+        // get match_type
+        if ('match_type' in schedule[d].matches[m]){match_type = schedule[d].matches[m].match_type;}
+        else {match_type = schedule[d].match_type;}
         player1 = schedule[d].matches[m].player1;
         player2 = schedule[d].matches[m].player2;
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
         // time = schedule[d].matches[m].time;
-        AddEvent("Match "+(i+1).toString(), date, "6+ PM", player1, player2, gender, score1, score2);
+        result_msg = schedule[d].matches[m].result;
+        
+        // preliminary maintainer input validation
+        // not needed if mantainer inputs correctly
+        // --------------------------------------------------------------------------------------
+        if(score1[0]==null){score1[0]=0;}
+        if(score1[1]==null){score1[1]=0;}
+        if(score1[2]==null){score1[2]=0;}
+        
+        if(score2[0]==null){score2[0]=0;}
+        if(score2[1]==null){score2[1]=0;}
+        if(score2[2]==null){score2[2]=0;}
+        
+        if (match_type == 'Group Stages'){
+            if (i==0){AddSection("Group Stages");}
+            AddEvent("Match "+(i+1).toString(), date, "6+ PM", player1, player2, gender, score1, score2, result_msg);
+        } else 
+        if (match_type == 'Semi Finals'){
+            if (j==0){AddSection("Semi Final")}
+            AddEvent("Semi Final "+(j+1).toString(), date, "6+ PM", player1, player2, gender, score1, score2, result_msg);
+            j+=1;
+        } else 
+        if(match_type == 'Finals'){
+            if (k==0){AddSection('Final')}
+            AddEvent("Final", date, "6+ PM", player1, player2, gender, score1, score2, result_msg, 'span2');
+            k+=1;
+        }
     }
 
 }
 
 
-
-// Tables - testing
-function Table_test() {
-    names = ["Anirban Kopty", "Ranit Behera",
-            "Gopal Prabhu", "Sudhir Gholap",
-            "Raghav Gogia", "Rajesh Mondal", "Rajesh Maiti"]
-    gender = "male"
-    points = [4,5,2,5,0,4,2]
-    AddPoints("single", names, gender, points);
-    
-    names = [["Anirban Kopty", "Ranit Behera"],
-            ["Raghav Gogia", "Rajesh Mondal", "Rajesh Maiti"], //why 3 here,
-            ["Gopal Prabhu", "Sudhir Gholap"]]
-    gender = ["male", "female"]
-    points = [4,5,2,5,0,4,2]
-    AddPoints("double", names, gender, points)
-}
-
-
+// Tables
 function Table(category, gender) {
     gender = [gender].flat();
     indices = GetIndices(category, gender[0]);     // gender needs to be a string
     names = GetNames(indices);
     points = [];
 
-    if (category == 'double'){
-        names2 = [];
-        for (i in names) {
-            names2.push([names[i], GetPartner(indices)[i]]);
-        }
-        names = names2;
-    } else if (category == 'mixed double'){
-        names2 = [];
-        for (i in names) {
-            names2.push([names[i], GetMixedPartnerOf(indices[i])]);
-        }
-        names = names2;
+    // handling partner name for doubles and getting points data
+    switch (category) {
+        case 'single':
+            for (let i of indices){
+                points.push(players[i].points_singles)
+            }
+            break;
+        case 'double':
+            names2 = [];
+            for (i in names) {
+                names2.push([names[i], GetPartnerOf(indices[i])]);
+            }
+            names = names2;
+            for (let i of indices){
+                points.push(players[i].points_doubles)
+            }
+            break;
+        case 'mixed double':
+            names2 = [];
+            for (i in names) {
+                names2.push([names[i], GetMixedPartnerOf(indices[i])]);
+            }
+            names = names2;
+            for (let i of indices){
+                points.push(players[i].points_mixed)
+            }
+            break;
+        default:
+            break;
     }
 
-    
-    if (category == 'single'){
-        for (let i of indices){
-            points.push(players[i].points_singles)
-        }
-    } else if (category == 'double'){
-        for (let i of indices){
-            points.push(players[i].points_doubles)
-        }
-    } else if (category == 'mixed double'){
-        for (let i of indices){
-            points.push(players[i].points_mixed)
-        }
-    }
-
-    // if (points == null){points = Array(indices.length).fill(0);}
+    // to sort the names according to points
+    var list = [];
+    for (let j in names){list.push({'name':names[j], 'point':points[j]});}
+    list.sort(function(a, b) {
+        return ((a.point > b.point) ? -1 : ((a.point == b.point) ? 0 : 1));});
+    // sort_by_property(list, ['point', 'name']);
+    for (let j in list){names[j]=list[j].name;points[j]=list[j].point};
     
     AddPoints(category, names, gender, points)
 }
-
-
-// Table('mixed doubles', 'male');

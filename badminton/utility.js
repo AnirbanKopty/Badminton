@@ -46,8 +46,6 @@ function GetMixedPartnerOf(index){return players[index].mixed_partner;}
 
 
 
-// data manipulation for scores and points ----------------
-// creating placeholder for points for everyone
 
 // utility script is never used this way
 // anyway
@@ -60,24 +58,25 @@ function GetMixedPartnerOf(index){return players[index].mixed_partner;}
 // anyways
 // anyways
 
-for (let i=0;i<players.length;i++){
-    if (players[i].category.includes('single')){players[i].points_singles = 0;}
-    if (players[i].category.includes('double')){players[i].points_doubles = 0;}
-    if (players[i].category.includes('mixed double')){players[i].points_mixed = 0;}
-}
-
-// creating placeholder for score difference for every match
-for (let d=0;d<schedule.length;d++){
-    for (let m=0;m<schedule[d].matches.length;m++){
-        schedule[d].matches[m].score_diff = 0;
-    }
-}
+function sort_by_property(list, property_name_list) {
+    list.sort((a, b) => {
+      for (var p = 0; p < property_name_list.length; p++) {
+        prop = property_name_list[p];
+        if (a[prop] < b[prop]) {
+          return -1;
+        } else if (a[prop] !== a[prop]) {
+          return 1;
+        }
+      }
+      return 0;
+    });
+  }
 
 
 function CalculatePoints(category){
     // Calculates the points and push it directly to data.js schedule
     date_today = parseInt(GetDate().split(" ")[0]);
-    date_today = 10;
+    date_today = 13;
     indices = GetIndicesSchedule(category);
 
     for (let i in indices){
@@ -85,7 +84,8 @@ function CalculatePoints(category){
         d = indices[i][0];
         m = indices[i][1];
         match_date = parseInt(schedule[d].date.split(" ")[0]);
-        match_type = schedule[d].match_type;
+        if ('match_type' in schedule[d].matches[m]){match_type = schedule[d].matches[m].match_type;}
+        else{match_type = schedule[d].match_type;}
         player1 = schedule[d].matches[m].player1;
         player2 = schedule[d].matches[m].player2;
         // time = schedule[d].matches[m].time;
@@ -97,6 +97,9 @@ function CalculatePoints(category){
         player1 = [player1].flat()
         player2 = [player2].flat()
         
+        // preliminary maintainer input validation
+        // not needed if mantainer inputs correctly
+        // -----------------------------------------------------------------
         if(score1[0]==null){score1[0]=0;}
         if(score1[1]==null){score1[1]=0;}
         if(score1[2]==null){score1[2]=0;}
@@ -108,58 +111,78 @@ function CalculatePoints(category){
         let p1_data = players[GetIndex(player1[0])];
         let p2_data = players[GetIndex(player2[0])];
         
-        // All Points logic here --------------------------
+        // Points Calculation and setting variables ------------------------
         if (match_type == 'Group Stages'){
-            if (date_today > match_date){
-            //! This works only if whole tournament is in the same month
+            // if (date_today > match_date){
+            // //! This works only if whole tournament is in the same month
     
-                if (category.includes('single')){
-                    p1_points = p1_data.points_singles;    //<-- where are you initialising points_single
-                    p2_points = p2_data.points_singles;
+            if (category.includes('single')){
+                [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
+                
+                p1_data.points_singles += p1_point_match;
+                p2_data.points_singles += p2_point_match;
+                
+            } else {
+                if (category.includes('mix')){
+                    [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
+                    
+                    p1_data.points_mixed += p1_point_match;
+                    p2_data.points_mixed += p2_point_match;
+                    
                 } else {
-                    if (category.includes('mix')){
-                        p1_points = p1_data.points_mixed;
-                        p2_points = p2_data.points_mixed;
-                    } else {
-                        p1_points = p1_data.points_doubles;
-                        p2_points = p2_data.points_doubles;
-                    }
-                }
-    
-                // The logic for points
-                max_score = 21;
-                win_reward_pt = 1;      // win point
-                score_diff = (score1[0] + score1[1] + score1[2] - score2[0] - score2[1] - score2[2]);
-                schedule[d].matches[m].score_diff = score_diff;
-                score_diff_f = score_diff/max_score;
-                if (score_diff_f > 0){p1_points += win_reward_pt;}
-                else if (score_diff_f < 0){p2_points += win_reward_pt;} // but here it gets only once
-                p1_points += score_diff_f;
-                p2_points -= score_diff_f;
-
-                // explain your code and wiring to me after two month
-                // hmmmm
-
-
-                if (category.includes('single')){
-                    p1_data.points_singles = p1_points;
-                    p2_data.points_singles = p2_points;
-                } else {
-                    if (category.includes('mix')){
-                        p1_data.points_mixed = p1_points;
-                        p2_data.points_mixed = p2_points;
-                    } else {
-                        p1_data.points_doubles = p1_points;
-                        p2_data.points_doubles = p2_points;
-                    }
+                    // console.log("P1 : ", p1_data.name, " P2 : ", p2_data.name);
+                    // console.log("p1_points: ", p1_data.points_doubles, " p2_points : ", p2_data.points_doubles);
+                    [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
+                    p1_data.points_doubles += p1_point_match;
+                    p2_data.points_doubles += p2_point_match;
+                    
+                    // console.log("p1_points: ", p1_data.points_doubles, " p2_points : ", p2_data.points_doubles);
+                    // console.log(" ");
                 }
             }
+            
+            // }
         }
     }
 
 }
 
+function CalculatePoints_each(score1, score2){
+    // For the logic for points, see `Readme.md`
+    let max_score_round = 21;
+    let max_score_diff = 0;
 
-// calculating points each time browser loads
-// Not good - we should maintain a data file (json) and update the file
-// CalculatePoints("mens-single");
+    let p1_round_win = 0;
+    let p2_round_win = 0;
+    
+    let p1_point = 0;
+    let p2_point = 0;
+
+    let score_diff = 0;
+    let score_diff_f = 0;
+
+    // each round analysis
+    for (let r in score1){
+        score_diff_round = score1[r] - score2[r];
+        if(score_diff_round > 0){p1_round_win+=1;}
+        else if (score_diff_round < 0){p2_round_win+=1;}
+        score_diff += score_diff_round;
+        // console.log("round", r, ": p1_score - ", score1[r], " p2_score - ", score2[r]);
+        // console.log("round", r, ": p1_round_win - ", p1_round_win, " p2_round_win - ", p2_round_win);
+        // console.log("score_diff_round : ", score_diff_round);
+    }
+    
+    // match result
+    max_score_diff = max_score_round * (p1_round_win+p2_round_win);
+    // console.log("score_diff_total : ", score_diff);
+    // console.log("max_score_diff : ", max_score_diff);
+    if (max_score_diff!=0){
+        // To avoid NaN for match that did not happen
+        score_diff_f = score_diff/max_score_diff;
+        p1_point += p1_round_win + score_diff_f +1;  // +1 for playing the match
+        p2_point += p2_round_win - score_diff_f +1;
+    }
+    // console.log("score_diff_f : ", score_diff_f);
+
+    return [p1_point, p2_point];
+}
