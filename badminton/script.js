@@ -28,8 +28,6 @@ function TabClick(sender){
     FillCards();
 }
 
-// // on load
-
 // This function is called every time tab is changed
 title=document.getElementsByClassName('title')[0]
 function FillCards(){
@@ -125,65 +123,6 @@ function FillCards(){
             console.log("case default");
       }
 
-}
-
-
-
-
-// 
-function ChangeTheme(){
-    console.log("Test");
-    document.body.classList.toggle("theme-light");
-    document.body.classList.toggle("theme-dark");
-
-    if(document.body.classList.split(' ').includes("theme-dark")){
-        document.body.style.backgroundColor="black";
-    }else{
-        document.body.style.backgroundColor="white";
-    }
-}
-// 
-
-
-
-// window.onload = function() { 
-//     ShowCategory();
-// };
-
-
-
-
-function FillShelf(){
-    key = GetURLParameter('key');         
-    tab = GetActiveTab().toLowerCase();
-
-    title=document.getElementsByClassName('title')[0];
-
-    switch(key){
-        case "":
-            FillShelf_Tab1(key);break;
-        case "tab2":
-            FillShelf_Tab2(key);break;
-        case "tab2":
-            FillShelf_Tab3(key);break;
-        default:
-            FillShelf_Tab1(key);
-    }
-
-
-
-    shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
-    shelf_content.innerHTML = "";
-
-    switch(true){
-        case (tab=="tab1"):
-            FillShelf_Tab1(key);break;
-        case (tab=="tab2"):
-            FillShelf_Tab2(key);break;
-        case (tab=="tab2"):
-            FillShelf_Tab3(key);break;
-        default:
-            FillShelf_Tab1(key);
-    }
+      AddShortCredits();
 
 }

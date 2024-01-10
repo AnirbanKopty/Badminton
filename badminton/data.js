@@ -327,6 +327,7 @@ schedule = [
                 category: "mens-double",
                 player1: ["Tanuman Ghosh", "Om Mestry"],
                 player2: ["TBD", "TBD"],
+                willing_team: 'player2',
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
@@ -461,6 +462,7 @@ schedule = [
                 category: "mens-double",
                 player1: ["Tanuman Ghosh", "Om Mestry"],
                 player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
+                willing_team: 'player2',
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""

@@ -200,3 +200,36 @@ function AddPoints(single_or_double, names, gender, points){
 
     shelf_content.innerHTML += html;
 }
+
+function AddCredits(){
+    shelf_content.innerHTML += 
+    `
+    <div class="card credits span2">
+        <div class="para">
+            <div class="header1">Designed & Developed By</div>
+            <div>Ranit Behera</div>
+            <div>Anirban Kopty</div>
+        </div>
+
+        <div class="para">
+            <div class="header2">Maintained By</div>
+            <div>Anirban Kopty</div>
+        </div>
+
+        <div class="para">
+            <div class="header3">Organised By</div>
+            <div>Gopal Prabhu</div>
+            <div>2nd Yr Research Scholars</div>
+        </div>
+    </div>
+    `
+}
+
+function AddShortCredits(){
+    shelf_content.innerHTML +=
+    `<div class="card text span2 bottom">
+    Designed & Developed by Ranit & Anirban, 
+    Maintained by Anirban, 
+    Organized by Gopal and 2nd Yr Research Scholars
+    </div>`
+}

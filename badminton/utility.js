@@ -113,12 +113,14 @@ function CalculatePoints(category){
         
         // Points Calculation and setting variables ------------------------
         if (match_type == 'Group Stages'){
-            // if (date_today > match_date){
-            // //! This works only if whole tournament is in the same month
-    
             if (category.includes('single')){
                 [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
                 
+                // integrating willing team idea
+                if ('willing_team' in schedule[d].matches[m]){
+                    if (schedule[d].matches[m].willing_team == 'player1'){p1_point_match=0;} else
+                    if (schedule[d].matches[m].willing_team == 'player2'){p2_point_match=0;}
+                }
                 p1_data.points_singles += p1_point_match;
                 p2_data.points_singles += p2_point_match;
                 
@@ -126,6 +128,11 @@ function CalculatePoints(category){
                 if (category.includes('mix')){
                     [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
                     
+                    // integrating willing team idea
+                    if ('willing_team' in schedule[d].matches[m]){
+                        if (schedule[d].matches[m].willing_team == 'player1'){p1_point_match=0;} else
+                        if (schedule[d].matches[m].willing_team == 'player2'){p2_point_match=0;}
+                    }
                     p1_data.points_mixed += p1_point_match;
                     p2_data.points_mixed += p2_point_match;
                     
@@ -133,6 +140,12 @@ function CalculatePoints(category){
                     // console.log("P1 : ", p1_data.name, " P2 : ", p2_data.name);
                     // console.log("p1_points: ", p1_data.points_doubles, " p2_points : ", p2_data.points_doubles);
                     [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
+
+                    // integrating willing team idea
+                    if ('willing_team' in schedule[d].matches[m]){
+                        if (schedule[d].matches[m].willing_team == 'player1'){p1_point_match=0;} else
+                        if (schedule[d].matches[m].willing_team == 'player2'){p2_point_match=0;}
+                    }
                     p1_data.points_doubles += p1_point_match;
                     p2_data.points_doubles += p2_point_match;
                     
@@ -140,8 +153,6 @@ function CalculatePoints(category){
                     // console.log(" ");
                 }
             }
-            
-            // }
         }
     }
 
