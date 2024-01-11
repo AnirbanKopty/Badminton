@@ -52,7 +52,7 @@ function FillCards(){
                 
             } else
             if (tab == 'Table'){
-                AddSection("Table");
+                AddSection("Points Table");
                 Table('single', 'male');
             }
             break;
@@ -68,7 +68,7 @@ function FillCards(){
                 
             } else 
             if (tab == 'Table'){
-                AddSection("Table");
+                AddSection("Points Table");
                 Table('single', 'female');
                 
             }
@@ -85,7 +85,7 @@ function FillCards(){
                 
             } else 
             if (tab == 'Table'){
-                AddSection("Table");
+                AddSection("Points Table");
                 Table('double', ['male','male']);
             }
             break;
@@ -101,7 +101,7 @@ function FillCards(){
                 
             } else 
             if (tab == 'Table'){
-                AddSection("Table");
+                AddSection("Points Table");
                 // Table('double', ['female','female']);
                 AddText("No Table due to not enough participants.")
             }
@@ -119,7 +119,7 @@ function FillCards(){
                 
             } else
             if (tab == 'Table'){
-                AddSection("Table");
+                AddSection("Points Table");
                 // Table('mixed-double', ['male','female']);
                 AddText("No Table due to not enough participants.")
             }
