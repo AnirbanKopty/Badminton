@@ -16,6 +16,8 @@ shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassNa
 
 
 
+
+
 // Tab switching
 var tabs=document.getElementsByClassName("tab");
 for(let i=0;i<tabs.length;i++){tabs[i].addEventListener('click',function(){TabClick(this);})}
@@ -191,3 +193,7 @@ function FillShelf(){
     }
 
 }
+
+
+
+

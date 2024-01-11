@@ -126,3 +126,11 @@ function FillCards(){
       AddShortCredits();
 
 }
+
+
+
+
+category = GetURLParameter('category'); 
+if(category=="mens-single")
+{tabbar.style.display="none";}
+else{tabbar.style.display="static";}
