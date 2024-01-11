@@ -30,7 +30,6 @@ function TabClick(sender){
     FillCards();
 }
 
-console.log("testttttttttttttt");
 
 // This function is called every time tab is changed
 title=document.getElementsByClassName('title')[0]

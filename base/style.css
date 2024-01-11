@@ -356,16 +356,36 @@ a{
 /* ------------------------------------------------------- Points Table */
 table{
     font-family: 'Poppins';
+    table-layout: fixed;
     overflow: hidden;
 }
+
 
 /* th,td{background-color: yellow;} */
 
 tr > *{
-    padding: 0.4rem 2rem;
+    /* x padding later to fix issue */
+    padding: 0.4rem 0rem;
 }
 tr > *:first-child{text-align: left;}
 tr > *:last-child{text-align: right;}
+
+/* small screen overflow fix */
+table tr th:first-child,
+table tr td:first-child{
+    padding-left: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20ch;
+    white-space: nowrap;
+}
+table tr th:last-child,
+table tr td:last-child{
+    padding-right: 2rem;
+    padding-left: 1rem;
+}
+
+
 
 table,th,td{border-collapse: collapse}
 th{border-bottom: 2px solid rgba(0,0,0,0.3);}
@@ -415,8 +435,9 @@ td .female{
     text-overflow: ellipsis;
     overflow: hidden;
     font-size: 1rem;
-    width: 100%;
+    /* width: 100%; */
 }
+
 
 
 
@@ -433,14 +454,14 @@ td .female{
     display: flex;
     flex-direction: column;
     color: rgba(0,0,0,0.8);
-
+    
 }
 
 .card.game-event-s1 .schedule{
     height: 2rem;
     margin-bottom: 0.4rem;
     font-size: 1rem;
-
+    
     display: grid;
     grid-template-columns: repeat(3,1fr);
     align-items: center;
@@ -749,3 +770,5 @@ td .female{
     /* position: fixed; */
     /* bottom: 0%; */
 }
+
+
