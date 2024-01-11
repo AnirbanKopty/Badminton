@@ -58,6 +58,13 @@
     FillCards();
     category = GetURLParameter('category');         
     CalculatePoints(category);
+    if(category=="all"){
+        tabbar.style.display="none";
+        title.innerText="All Schedules";
+        EventCardsAll();
+        ScrollToHL();
+    }
+    else{tabbar.style.display="static";}
 };
 </script>
 

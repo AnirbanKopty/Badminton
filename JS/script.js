@@ -134,11 +134,3 @@ function FillCards(){
         
     }
     
-category = GetURLParameter('category');
-if(category=="all"){
-    tabbar.style.display="none";
-    title.innerText="All Schedules";
-    EventCardsAll();
-    ScrollToHL();
-}
-else{tabbar.style.display="static";}
