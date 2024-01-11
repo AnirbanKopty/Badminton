@@ -338,6 +338,9 @@ a{
 .card.game-category.double.mix .icon::before{content: "\e4eb";}
 .card.game-category.double.mix .icon::after{content: "\e13e";}
 
+.card.game-category.all.all .icon::after{content: "\e5e1";}  /* Category All Icon*/
+.card.game-category.all.all .icon::after{content: "\e5e1";} /* Category All Icon*/
+
 
 /*
 .card.game-category.highlight{
@@ -592,7 +595,10 @@ td .female{
     color: rgba(255,255,255,0.8);
 }
 
-
+.card.game-event .header{
+    text-align: center;
+    font-weight: 600;
+}
 
 .card.game-event .schedule{
     height: 2rem;
