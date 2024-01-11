@@ -743,3 +743,9 @@ td .female{
 .card.credits .para .header3::before{content: '\e179';}
 .card.credits .para .header3::after{content: '\e6b1';}
 
+
+.card.text.bottom{
+    font-size: 0.7rem;
+    /* position: fixed; */
+    /* bottom: 0%; */
+}

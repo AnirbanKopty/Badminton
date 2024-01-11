@@ -28,13 +28,10 @@ function TabClick(sender){
     FillCards();
 }
 
-// // on load
-
 // This function is called every time tab is changed
 title=document.getElementsByClassName('title')[0]
 function FillCards(){
     category = GetURLParameter('category');         
-    // CalculatePoints(category);
     tab = GetActiveTab();
     
     switch(category) {
@@ -45,20 +42,13 @@ function FillCards(){
                 PlayerCards('single', 'male');
             } else 
             if (tab == 'Schedule'){
-                AddSection("Schedule");
-                // EventCards_test();
                 EventCards(category);
+                document.getElementsByClassName("highlight")[0].scrollIntoView();
                 
             } else
             if (tab == 'Table'){
-
-                // 
-
                 AddSection("Table");
-                // Table_test();    
-                Table('single', 'male');    
-                // Table('single', 'male', );    
-                
+                Table('single', 'male');
             }
             break;
         case 'womens-single':
@@ -68,8 +58,8 @@ function FillCards(){
                 PlayerCards('single', 'female');
             } else
             if (tab == 'Schedule'){
-                AddSection("Schedule");
                 EventCards(category);
+                document.getElementsByClassName("highlight")[0].scrollIntoView();
                 
             } else 
             if (tab == 'Table'){
@@ -79,19 +69,19 @@ function FillCards(){
             }
             break;
         case 'mens-double':
-                title.innerText="Men's Double";
-                if (tab == 'Players'){
-                    AddSection("Players");
-                    PlayerCards('double', 'male')
-                } else
-                if (tab == 'Schedule'){
-                AddSection("Schedule");
+            title.innerText="Men's Double";
+            if (tab == 'Players'){
+                AddSection("Players");
+                PlayerCards('double', 'male')
+            } else
+            if (tab == 'Schedule'){
                 EventCards(category);
+                document.getElementsByClassName("highlight")[0].scrollIntoView();
                 
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-                Table('double', 'male');
+                Table('double', ['male','male']);
             }
             break;
         case 'womens-double':
@@ -101,95 +91,38 @@ function FillCards(){
                 PlayerCards('double', 'female')
             }
             if (tab == 'Schedule'){
-                AddSection("Schedule");
                 EventCards(category);
+                document.getElementsByClassName("highlight")[0].scrollIntoView();
                 
             } else 
             if (tab == 'Table'){
                 AddSection("Table");
-                
-                }
+                // Table('double', ['female','female']);
+                AddText("No Table due to not enough participants.")
+            }
             break;
-        case 'mix-double':
-            title.innerText="Mixed Double";
+            case 'mix-double':
+                title.innerText="Mixed Double";
             if (tab == 'Players'){
                 AddSection("Players");
                 PlayerCards('mixed double', 'male') 
                 // this takes only male as first participant
             }
             if (tab == 'Schedule'){
-                AddSection("Schedule");
                 EventCards(category);
+                document.getElementsByClassName("highlight")[0].scrollIntoView();
                 
             } else
             if (tab == 'Table'){
                 AddSection("Table");
-                
+                // Table('mixed-double', ['male','female']);
+                AddText("No Table due to not enough participants.")
             }
             break;
         default:
             console.log("case default");
       }
 
-}
-
-
-
-
-// 
-function ChangeTheme(){
-    console.log("Test");
-    document.body.classList.toggle("theme-light");
-    document.body.classList.toggle("theme-dark");
-
-    if(document.body.classList.split(' ').includes("theme-dark")){
-        document.body.style.backgroundColor="black";
-    }else{
-        document.body.style.backgroundColor="white";
-    }
-}
-// 
-
-
-
-// window.onload = function() { 
-//     ShowCategory();
-// };
-
-
-
-
-function FillShelf(){
-    key = GetURLParameter('key');         
-    tab = GetActiveTab().toLowerCase();
-
-    title=document.getElementsByClassName('title')[0];
-
-    switch(key){
-        case "":
-            FillShelf_Tab1(key);break;
-        case "tab2":
-            FillShelf_Tab2(key);break;
-        case "tab2":
-            FillShelf_Tab3(key);break;
-        default:
-            FillShelf_Tab1(key);
-    }
-
-
-
-    shelf_content = document.getElementsByClassName("shelf")[0].getElementsByClassName("content")[0];
-    shelf_content.innerHTML = "";
-
-    switch(true){
-        case (tab=="tab1"):
-            FillShelf_Tab1(key);break;
-        case (tab=="tab2"):
-            FillShelf_Tab2(key);break;
-        case (tab=="tab2"):
-            FillShelf_Tab3(key);break;
-        default:
-            FillShelf_Tab1(key);
-    }
+      AddShortCredits();
 
 }

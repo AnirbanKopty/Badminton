@@ -56,11 +56,11 @@ function AddCategory(card_title, single_or_double, gender, live, href, span2="")
 // quick hacky fix as round string
 function GetRoundDivHTML(round,score){
     html = "<div class=\"round" + round.toString() + " ";
-    if(score==null){html+= "extra-grey";}
+    if(score==null || score==0){html+= "extra-grey";}
     html+= "\">";
 
     if(score==null){html+="00";}
-    else{html+=score;}
+    else{html+=score.toString().padStart(2,'0');}
     
     html+="</div>";
 
@@ -68,7 +68,7 @@ function GetRoundDivHTML(round,score){
 }
 
 
-function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, result){ 
+function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, result, span2=""){ 
     system_today = GetDate();
 
     // np.atleast1d()
@@ -78,9 +78,13 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
     score2 = [score2].flat();
     gender = [gender].flat();
 
+    net_score = score1[0] + score1[1] + score1[2] + score2[0] + score2[1] + score2[2];
+
+
     // card highlight automation
     html = "<div class=\"card game-event ";
-    if (date == system_today){html+="highlight";}
+    if (date == system_today){html+="highlight ";}
+    html+=span2;
     html+="\">";
 
     html += "<div class=\"schedule\">";
@@ -104,7 +108,8 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
     // extra-grey tag in class for that condtion
 
     html += "    </div>";
-    html += "    <div class=\"score\">";
+    if (net_score == 0){html += "    <div class=\"score hide\">";}
+    else {html += "    <div class=\"score\">";}
     html += "        <div class=\"top\">";
     html +=             GetRoundDivHTML(1, score1[0]);
     html +=             GetRoundDivHTML(2, score1[1]);
@@ -125,36 +130,24 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
     html += "    </div>";
     html += "</div>";
 
+    if(net_score==0){html += "<div class=\"result hide\">";}
+    else{html += "<div class=\"result\">";}
+    // ----------------------------------------------------------------------------------------
     // Win automation
-    html += "<div class=\"result\">";
-    if(result==null){
-        // preliminary maintainer input validation
-        // not needed if mantainer inputs correctly
-        // --------------------------------------------------------------------------------------
-        if(score1[0]==null){score1[0]=0;}
-        if(score1[1]==null){score1[1]=0;}
-        if(score1[2]==null){score1[2]=0;}
-        
-        if(score2[0]==null){score2[0]=0;}
-        if(score2[1]==null){score2[1]=0;}
-        if(score2[2]==null){score2[2]=0;}
-
-        net_score = score1[0] + score1[1] + score1[2] + score2[0] + score2[1] + score2[2];
-        if(net_score==0){result="Contact organiser for result."}
-        // ----------------------------------------------------------------------------------------
-        else{
+    if(result==null || result == ""){
+        if(net_score!=0){
             team1_win = 0;
             team2_win = 0;
             result = "";
 
             if(score1[0]>score2[0]){team1_win+=1;}
-            else{team2_win+=1;}
+            else if (score1[0]<score2[0]){team2_win+=1;}
 
             if(score1[1]>score2[1]){team1_win+=1;}
-            else{team2_win+=1;}
+            else if (score1[1]<score2[1]){team2_win+=1;}
 
             if(score1[2]>score2[2]){team1_win+=1;}
-            else{team2_win+=1;}
+            else if (score1[2]<score2[2]){team2_win+=1;}
 
             if(team1_win>team2_win){
                 for (i in name1){
@@ -208,4 +201,35 @@ function AddPoints(single_or_double, names, gender, points){
     shelf_content.innerHTML += html;
 }
 
+function AddCredits(){
+    shelf_content.innerHTML += 
+    `
+    <div class="card credits span2">
+        <div class="para">
+            <div class="header1">Designed & Developed By</div>
+            <div>Ranit Behera</div>
+            <div>Anirban Kopty</div>
+        </div>
 
+        <div class="para">
+            <div class="header2">Maintained By</div>
+            <div>Anirban Kopty</div>
+        </div>
+
+        <div class="para">
+            <div class="header3">Organised By</div>
+            <div>Gopal Prabhu</div>
+            <div>2nd Yr Research Scholars</div>
+        </div>
+    </div>
+    `
+}
+
+function AddShortCredits(){
+    shelf_content.innerHTML +=
+    `<div class="card text span2 bottom">
+    Designed & Developed by Ranit & Anirban, 
+    Maintained by Anirban, 
+    Organized by Gopal and 2nd Yr Research Scholars
+    </div>`
+}
