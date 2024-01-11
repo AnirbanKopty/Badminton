@@ -285,10 +285,10 @@ a{
     height: 3rem;
     line-height: 3rem;
 
-    overflow: hidden;
+    /* overflow: hidden;
     text-overflow: ellipsis;
     max-width: 20ch;
-    white-space: nowrap;
+    white-space: nowrap; */
 }
 
 .card.players.double .name:nth-child(1){
@@ -795,5 +795,3 @@ td .female{
     /* position: fixed; */
     /* bottom: 0%; */
 }
-
-
