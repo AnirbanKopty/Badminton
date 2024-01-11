@@ -248,32 +248,40 @@ schedule = [
                 category: "mens-double",
                 player1: ["Bikram Keshari Pradhan", "Mayur Shende"],
                 player2: ["Suprovo Ghosh", "Shivaraj Kandhasamy"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [12,10,0],
+                score2: [21,21,0],
                 result: ""
             },
             {
                 category: "mens-double",
                 player1: ["Gopalkrishna Prabhu", "Raghav Gogia"],
                 player2: ["Rahul G", "Swarnim"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [6,12,0],
+                score2: [21,21,0],
                 result: ""
             },
             {
                 category: "mens-single",
                 player1: "Prashant Nishad",
                 player2: "Chayan Mondal",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [4,4,0],
+                score2: [21,21,0],
                 result: ""
             },
             {
                 category: "mens-single",
                 player1: "Rohan Gaikwad",
                 player2: "Manish Kataria",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [3,3,0],
+                result: ""
+            },
+            {
+                category: "mens-single",
+                player1: "Pushparaj Chakravarti",
+                player2: "Bikram Keshari Pradhan",
+                score1: [14,10,0],
+                score2: [21,21,0],
                 result: ""
             },
             {
@@ -283,7 +291,7 @@ schedule = [
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
-            }
+            }   //!
         ]
     },
     {
@@ -463,14 +471,6 @@ schedule = [
                 player1: ["Tanuman Ghosh", "Om Mestry"],
                 player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
                 willing_team: 'player2',
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-single",
-                player1: "Pushparaj Chakravarti",
-                player2: "Bikram Keshari Pradhan",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""

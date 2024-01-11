@@ -31,6 +31,15 @@ function GetIndicesSchedule(category){
     return indices;
 }
 
+function GetIndicesScheduleAll(){
+    indices = [];
+    for (let d=0;d<schedule.length;d++){
+        for (let m=0;m<schedule[d].matches.length;m++){
+                indices.push([d,m]);
+        }
+    }
+    return indices;
+}
 
 function GetNames(indices){return indices.map(i => players[i].name)}
 function GetGenders(indices){return indices.map(i => players[i].gender)}
@@ -44,19 +53,8 @@ function GetPartnerOf(index){return players[index].partner;}
 function GetMixedPartnerOf(index){return players[index].mixed_partner;}
 
 
+function GetFirstName(name){return name.split(" ")[0];}
 
-
-
-// utility script is never used this way
-// anyway
-// utility script only provide helper function
-// they themselved never execute any code
-// standard namings
-// you come from callin scripts to one function, and only look at that function body
-// not the whole utility script 
-// anyways
-// anyways
-// anyways
 
 function sort_by_property(list, property_name_list) {
     list.sort((a, b) => {
@@ -70,6 +68,21 @@ function sort_by_property(list, property_name_list) {
       }
       return 0;
     });
+  }
+
+  function ValidateScore(score1, score2){
+    // preliminary maintainer input validation
+    // not needed if mantainer inputs correctly
+    // --------------------------------------------------------------------------------------
+    score1 = [score1].flat();
+    score2 = [score2].flat();
+    if(score1[0]==null){score1[0]=0;}
+    if(score1[1]==null){score1[1]=0;}
+    if(score1[2]==null){score1[2]=0;}
+    
+    if(score2[0]==null){score2[0]=0;}
+    if(score2[1]==null){score2[1]=0;}
+    if(score2[2]==null){score2[2]=0;}
   }
 
 

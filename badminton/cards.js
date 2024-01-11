@@ -1,10 +1,11 @@
 function ShowCategory(){
     AddSection("Category")
-    AddCategory("Men's Single","single","men",false,"event.html?category=mens-single")
-    AddCategory("Women's Single","single","women",false,"event.html?category=womens-single")
-    AddCategory("Men's Double","double","men",false,"event.html?category=mens-double")
-    AddCategory("Women's Double","double","women",false,"event.html?category=womens-double")
-    AddCategory("Mixed Double","double","mix",false,"event.html?category=mix-double", "span2")
+    AddCategory("Men's Single","single","men",false,"event.html?category=mens-single");
+    AddCategory("Women's Single","single","women",false,"event.html?category=womens-single");
+    AddCategory("Men's Double","double","men",false,"event.html?category=mens-double");
+    AddCategory("Women's Double","double","women",false,"event.html?category=womens-double");
+    AddCategory("Mixed Double","double","mix",false,"event.html?category=mix-double", "span2");
+    AddCategory("All Categories","all","all",false,"event.html?category=all", "span2");
 }
 
 
@@ -88,16 +89,18 @@ function PlayerCards(category, gender){
 
 // Schedules
 function EventCards(category){
-    // category = 'mens singles', ...
+    // category = 'mens-single', ...
     indices = GetIndicesSchedule(category);
 
     // quickfix
-    if (category == 'mens-single'){gender = 'male';}
-    if (category == 'womens-single'){gender = 'female';}
-    if (category == 'mens-double'){gender = ['male', 'male'];}
-    if (category == 'womens-double'){gender = ['female', 'female'];}
-    if (category == 'mix-double'){gender = ['male', 'female'];}
-
+    switch (category) {
+        case 'mens-single':gender = 'male';break;
+        case 'womens-single':gender = 'female';break;
+        case 'mens-double':gender = ['male','male'];break;
+        case 'womens-double':gender = ['female','female'];break;
+        case 'mix-double':gender = ['male','female'];break;
+        default:break;
+    }
     
     let j=0;
     let k=0;
@@ -114,31 +117,76 @@ function EventCards(category){
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
         // time = schedule[d].matches[m].time;
+        time = "6:00 PM+";
         result_msg = schedule[d].matches[m].result;
         
-        // preliminary maintainer input validation
-        // not needed if mantainer inputs correctly
-        // --------------------------------------------------------------------------------------
-        if(score1[0]==null){score1[0]=0;}
-        if(score1[1]==null){score1[1]=0;}
-        if(score1[2]==null){score1[2]=0;}
-        
-        if(score2[0]==null){score2[0]=0;}
-        if(score2[1]==null){score2[1]=0;}
-        if(score2[2]==null){score2[2]=0;}
+        ValidateScore(score1, score2);
         
         if (match_type == 'Group Stages'){
             if (i==0){AddSection("Group Stages");}
-            AddEvent("Match "+(i+1).toString(), date, "6+ PM", player1, player2, gender, score1, score2, result_msg);
+            AddEvent("Match "+(i+1).toString(), date, time, player1, player2, gender, score1, score2, result_msg);
         } else 
         if (match_type == 'Semi Finals'){
-            if (j==0){AddSection("Semi Final")}
-            AddEvent("Semi Final "+(j+1).toString(), date, "6+ PM", player1, player2, gender, score1, score2, result_msg);
+            if (j==0){AddSection("Semi Final");}
+            AddEvent("SF "+(j+1).toString(), date, time, player1, player2, gender, score1, score2, result_msg);
             j+=1;
         } else 
         if(match_type == 'Finals'){
-            if (k==0){AddSection('Final')}
-            AddEvent("Final", date, "6+ PM", player1, player2, gender, score1, score2, result_msg, 'span2');
+            if (k==0){AddSection('Final');}
+            AddEvent("Final", date, time, player1, player2, gender, score1, score2, result_msg, 'span2');
+            k+=1;
+        }
+    }
+
+}
+
+function EventCardsAll(){
+    indices = GetIndicesScheduleAll();
+
+    let j=0;
+    let k=0;
+    for (let i in indices){
+        i = parseInt(i);
+        d = indices[i][0];
+        m = indices[i][1];
+        date = schedule[d].date;
+        // get match_type
+        if ('match_type' in schedule[d].matches[m]){match_type = schedule[d].matches[m].match_type;}
+        else {match_type = schedule[d].match_type;}
+        category = schedule[d].matches[m].category;
+        player1 = schedule[d].matches[m].player1;
+        player2 = schedule[d].matches[m].player2;
+        score1 = schedule[d].matches[m].score1;
+        score2 = schedule[d].matches[m].score2;
+        // time = schedule[d].matches[m].time;
+        time = "6:00 PM+";
+        result_msg = schedule[d].matches[m].result;
+        switch (category) {
+            case 'mens-single':gender = 'male';eventname="Men's Single";break;
+            case 'womens-single':gender = 'female';eventname="Women's Single";break;
+            case 'mens-double':gender = ['male','male'];eventname="Men's Double";break;
+            case 'womens-double':gender = ['female','female'];eventname="Women's Double";break;
+            case 'mix-double':gender = ['male','female'];eventname="Mixed Double";break;
+            default:break;
+        }
+
+        ValidateScore(score1, score2);
+        
+        if (match_type == 'Group Stages'){
+            // if (i==0){AddSection("Group Stages");}
+            eventname += ` - ${match_type}`;
+            AddEvent("Match "+(i+1).toString(), date, time, player1, player2, gender, score1, score2, result_msg, "", eventname);
+        } else 
+        if (match_type == 'Semi Finals'){
+            // if (j==0){AddSection("Semi Final");}
+            eventname += ` - ${match_type}`;
+            AddEvent("SF "+(j+1).toString(), date, time, player1, player2, gender, score1, score2, result_msg, "", eventname);
+            j+=1;
+        } else 
+        if(match_type == 'Finals'){
+            // if (k==0){AddSection('Final');}
+            eventname += ` - ${match_type}`;
+            AddEvent("Final", date, time, player1, player2, gender, score1, score2, result_msg, 'span2', eventname);
             k+=1;
         }
     }

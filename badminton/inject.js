@@ -52,6 +52,18 @@ function AddCategory(card_title, single_or_double, gender, live, href, span2="")
     shelf_content.innerHTML += html;
 }
 
+function AddCategoryText(text, href, span2=""){
+    shelf_content.innerHTML += `
+    <a href=${href}>
+        <div class="card game-category ${span2}">
+            <div class="card text">
+                <div class="name">${text}</div>
+            </div>
+        </div>
+    </a>
+    `
+}
+
 
 // quick hacky fix as round string
 function GetRoundDivHTML(round,score){
@@ -68,7 +80,7 @@ function GetRoundDivHTML(round,score){
 }
 
 
-function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, result, span2=""){ 
+function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, result, span2="", eventname=false){ 
     system_today = GetDate();
 
     // np.atleast1d()
@@ -86,6 +98,10 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
     if (date == system_today){html+="highlight ";}
     html+=span2;
     html+="\">";
+
+    if(!(eventname===false)){
+        html+=`<div class="header">${eventname}</div>`;
+    }
 
     html += "<div class=\"schedule\">";
     html += "    <div class=\"match-no\">" + match_no + "</div>";
@@ -151,12 +167,14 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
 
             if(team1_win>team2_win){
                 for (i in name1){
-                    result += name1[i];
+                    if (GetFirstName(name1[i])!=GetFirstName(name2[i])){result += GetFirstName(name1[i]);}
+                    else{result += name1[i];}
                     if (i<name1.length-1){result += " & ";}
                 }
             }else{
                 for (i in name2){
-                    result += name2[i];
+                    if (GetFirstName(name1[0])!=GetFirstName(name2[i])){result += GetFirstName(name2[i]);}
+                    else{result += name2[i];}
                     if (i<name2.length-1){result += " & ";}
                 }
             }
