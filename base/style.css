@@ -25,7 +25,7 @@ html,body{height: 100%;}
     background-color: var(--banner);
     box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.6);
 
-    overflow: hidden;
+    /* overflow: hidden; */         /* ! This was the issue */
 }
 /* @media (orientation: portrait) {.banner {--height: 20vh;}} */
 @media (orientation: landscape) {
