@@ -28,6 +28,11 @@ function TabClick(sender){
     FillCards();
 }
 
+function ScrollToHL(){
+    hl_card = document.getElementsByClassName("highlight")[0];
+    if (hl_card != null){hl_card.scrollIntoView();}
+}
+
 // This function is called every time tab is changed
 title=document.getElementsByClassName('title')[0]
 function FillCards(){
@@ -41,9 +46,9 @@ function FillCards(){
                 AddSection("Players");
                 PlayerCards('single', 'male');
             } else 
-            if (tab == 'Schedule'){
+            if (tab == 'Events'){
                 EventCards(category);
-                document.getElementsByClassName("highlight")[0].scrollIntoView();
+                ScrollToHL();
                 
             } else
             if (tab == 'Table'){
@@ -57,9 +62,9 @@ function FillCards(){
                 AddSection("Players");
                 PlayerCards('single', 'female');
             } else
-            if (tab == 'Schedule'){
+            if (tab == 'Events'){
                 EventCards(category);
-                document.getElementsByClassName("highlight")[0].scrollIntoView();
+                ScrollToHL();
                 
             } else 
             if (tab == 'Table'){
@@ -74,9 +79,9 @@ function FillCards(){
                 AddSection("Players");
                 PlayerCards('double', 'male')
             } else
-            if (tab == 'Schedule'){
+            if (tab == 'Events'){
                 EventCards(category);
-                document.getElementsByClassName("highlight")[0].scrollIntoView();
+                ScrollToHL();
                 
             } else 
             if (tab == 'Table'){
@@ -90,9 +95,9 @@ function FillCards(){
                 AddSection("Players");
                 PlayerCards('double', 'female')
             }
-            if (tab == 'Schedule'){
+            if (tab == 'Events'){
                 EventCards(category);
-                document.getElementsByClassName("highlight")[0].scrollIntoView();
+                ScrollToHL();
                 
             } else 
             if (tab == 'Table'){
@@ -101,16 +106,16 @@ function FillCards(){
                 AddText("No Table due to not enough participants.")
             }
             break;
-            case 'mix-double':
-                title.innerText="Mixed Double";
+        case 'mix-double':
+            title.innerText="Mixed Double";
             if (tab == 'Players'){
                 AddSection("Players");
                 PlayerCards('mixed double', 'male') 
                 // this takes only male as first participant
             }
-            if (tab == 'Schedule'){
+            if (tab == 'Events'){
                 EventCards(category);
-                document.getElementsByClassName("highlight")[0].scrollIntoView();
+                ScrollToHL();
                 
             } else
             if (tab == 'Table'){
@@ -119,18 +124,21 @@ function FillCards(){
                 AddText("No Table due to not enough participants.")
             }
             break;
+        // case 'all':
+        //     break;
         default:
             console.log("case default");
-      }
-
-      AddShortCredits();
-
+        }
+        
+        // AddShortCredits();
+        
+    }
+    
+category = GetURLParameter('category');
+if(category=="all"){
+    tabbar.style.display="none";
+    title.innerText="All Schedules";
+    EventCardsAll();
+    ScrollToHL();
 }
-
-
-
-
-category = GetURLParameter('category'); 
-if(category=="mens-single")
-{tabbar.style.display="none";}
 else{tabbar.style.display="static";}
