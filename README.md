@@ -13,6 +13,8 @@ After the match ends, the score difference in total will be added/subtracted fro
 This is to avoid degeneracy in the points table.  
 Also, each team gets +1 for at least playing a match this is to avoid non-participated teams to get on top of the teams who lost.  
 
+`console` outputs are provided for checking of calculations.
+
 ## For maintainers
 
 - Data for `mixed double` need male participant to be 1st member of the team.

@@ -70,13 +70,20 @@ for (let i=0;i<players.length;i++){
 function PlayerCards(category, gender){
     indices = GetIndices(category, gender);
     names = GetNames(indices);
+
+    // to sort the names
+    var list = [];
+    for (let j in names){list.push({'index':indices[j], 'name':names[j]});}
+    sort_by_property(list, ['name']);
+    for (let j in list){indices[j]=list[j].index;names[j]=list[j].name;};
+
     if (category == 'single'){
         for (i in indices){
             AddSinglePlayer(names[i], gender)
         }
     } else if (category == 'double'){
         for (i in indices){
-            AddDoublePlayer(names[i], gender, GetPartner(indices)[i], gender);
+            AddDoublePlayer(names[i], gender, GetPartnerOf(indices[i]), gender);
         }
     } else if (category == 'mixed double'){
         for (i in indices){
@@ -235,9 +242,7 @@ function Table(category, gender) {
     // to sort the names according to points
     var list = [];
     for (let j in names){list.push({'name':names[j], 'point':points[j]});}
-    list.sort(function(a, b) {
-        return ((a.point > b.point) ? -1 : ((a.point == b.point) ? 0 : 1));});
-    // sort_by_property(list, ['point', 'name']);
+    sort_by_property(list, ['point'], 'descending');
     for (let j in list){names[j]=list[j].name;points[j]=list[j].point};
     
     AddPoints(category, names, gender, points)

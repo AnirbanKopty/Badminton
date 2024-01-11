@@ -183,6 +183,20 @@ players = [
         designation: "others",
         category: ["double"],
         partner: "Pushparaj Chakravarti"
+    },
+    {
+        name: "Tathagata Ghosh",
+        gender: "male",
+        designation: "PhD",
+        category: ["double"],
+        partner: "Soumya Roy"
+    },
+    {
+        name: "Soumya Roy",
+        gender: "male",
+        designation: "PhD",
+        category: ["double"],
+        partner: "Tathagata Ghosh"
     }
 ]
 
@@ -284,14 +298,14 @@ schedule = [
                 score2: [21,21,0],
                 result: ""
             },
-            {
-                category: "mens-single",
-                player1: "Santosh Bhujbal",
-                player2: "Om Mestry",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            }   //!
+            // {
+            //     category: "mens-single",
+            //     player1: "Santosh Bhujbal",
+            //     player2: "Om Mestry",
+            //     score1: [0,0,0],
+            //     score2: [0,0,0],
+            //     result: ""
+            // }   //!
         ]
     },
     {
@@ -300,6 +314,46 @@ schedule = [
         match_type: "Group Stages",
         matches: [
             {
+                category: "mens-double",
+                player1: ["Tathagata Ghosh", "Soumya Roy"],
+                player2: ["Manish Kataria", "Suvas Chaudhury"],
+                score1: [21,21,0],
+                score2: [8,14,0],
+                result: ""
+            },
+            {
+                category: "womens-single",
+                player1: "Meenakshi",
+                player2: "Swati Rokade",
+                score1: [15,15,0],
+                score2: [3,3,0],
+                result: ""
+            },
+            {
+                category: "mens-single",
+                player1: "Rohan Gaikwad",
+                player2: "Santosh Bhujbal",
+                score1: [21,21,0],
+                score2: [13,9,0],
+                result: ""
+            },
+            {
+                category: "mens-single",
+                player1: "Shivaraj Kandhasamy",
+                player2: "Rahul G",
+                score1: [21,21,0],
+                score2: [8,7,0],
+                result: ""
+            },
+            {
+                category: "mens-double",
+                player1: ["Rahul G", "Swarnim"],
+                player2: ["Suprovo Ghosh", "Shivaraj Kandhaswamy"],
+                score1: [7,6,0],
+                score2: [21,21,0],
+                result: ""
+            },
+            {
                 category: "mens-single",
                 player1: "Manish Kataria",
                 player2: "Pushparaj Chakravarti",
@@ -307,47 +361,15 @@ schedule = [
                 score2: [0,0,0],
                 result: ""
             },
-            {
-                category: "mens-single",
-                player1: "Rohan Gaikwad",
-                player2: "Om Mestry",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "womens-single",
-                player1: "Meenakshi",
-                player2: "Swati Rokade",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-single",
-                player1: "Shivaraj Kandhasamy",
-                player2: "Rahul G",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-double",
-                player1: ["Tanuman Ghosh", "Om Mestry"],
-                player2: ["TBD", "TBD"],
-                willing_team: 'player2',
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-double",
-                player1: ["Rahul G", "Swarnim"],
-                player2: ["Suprovo Ghosh", "Shivaraj Kandhaswamy"],
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            }
+            // {
+            //     category: "mens-double",
+            //     player1: ["Tanuman Ghosh", "Om Mestry"],
+            //     player2: ["TBD", "TBD"],
+            //     willing_team: 'player2',
+            //     score1: [0,0,0],
+            //     score2: [0,0,0],
+            //     result: ""
+            // }   //!
         ]
     },
     {
