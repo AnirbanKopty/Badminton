@@ -623,14 +623,15 @@ td .female{
 .card.game-event .schedule .time::before{content: '\e8b5';top:0.3rem;}
 
 .card.game-event .result{
-    height: 2rem;
+    /* height: 2rem; */
+    /* line-height: 2rem; */
+
     margin-top: 0.4rem;
     background-color: rgba(0,0,0,0.05);
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     
-    
-    line-height: 2rem;
     text-align: center;
+    padding: 0.5rem 1rem;
 }
 
 .card.game-event.highlight .result{
