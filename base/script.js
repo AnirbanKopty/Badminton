@@ -152,10 +152,6 @@ function ChangeTheme(){
 
 
 
-window.onload = function() { 
-    ShowCategory();
-};
-
 
 
 
