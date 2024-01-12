@@ -46,7 +46,7 @@ players = [
         gender: "male",
         designation: "PostDoc",
         category: ["double"],
-        partner: "Om Mestry"
+        partner: "Tathagata Ghosh"
     },
     {
         name: "Rahul Suresh Gaikwad",
@@ -136,10 +136,10 @@ players = [
         partner: "Swati Rokade" 
     },
     {
-        name: "Om Mestry",
+        name: "Tathagata Ghosh",
         gender: "male",
         designation: "others",
-        category: ["single", "double"],
+        category: ["double"],
         partner: "Tanuman Ghosh"
     },
     {
@@ -183,20 +183,6 @@ players = [
         designation: "others",
         category: ["double"],
         partner: "Pushparaj Chakravarti"
-    },
-    {
-        name: "Tathagata Ghosh",
-        gender: "male",
-        designation: "PhD",
-        category: ["double"],
-        partner: "Soumya Roy"
-    },
-    {
-        name: "Soumya Roy",
-        gender: "male",
-        designation: "PhD",
-        category: ["double"],
-        partner: "Tathagata Ghosh"
     }
 ]
 
@@ -301,7 +287,7 @@ schedule = [
             // {
             //     category: "mens-single",
             //     player1: "Santosh Bhujbal",
-            //     player2: "Om Mestry",
+            //     player2: "Tathagata Ghosh",
             //     score1: [0,0,0],
             //     score2: [0,0,0],
             //     result: ""
@@ -315,7 +301,7 @@ schedule = [
         matches: [
             {
                 category: "mens-double",
-                player1: ["Tathagata Ghosh", "Soumya Roy"],
+                player1: ["Tanuman Ghosh", "Tathagata Ghosh"],
                 player2: ["Manish Kataria", "Suvas Chaudhury"],
                 score1: [21,21,0],
                 score2: [8,14,0],
@@ -360,18 +346,9 @@ schedule = [
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
-            },
-            // {
-                //     category: "mens-double",
-                //     player1: ["Tanuman Ghosh", "Om Mestry"],
-                //     player2: ["TBD", "TBD"],
-                //     willing_team: 'player2',
-                //     score1: [0,0,0],
-                //     score2: [0,0,0],
-                //     result: ""
-                // }   //!
-            ]
-        },
+            }
+        ]
+    },
         {
             day: "Friday",
             date: "12 Jan",
@@ -490,7 +467,7 @@ schedule = [
         matches: [
             {
                 category: "mens-double",
-                player1: ["Tanuman Ghosh", "Om Mestry"],
+                player1: ["Tanuman Ghosh", "Tathagata Ghosh"],
                 player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
                 willing_team: 'player2',
                 score1: [0,0,0],
