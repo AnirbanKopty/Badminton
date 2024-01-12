@@ -362,27 +362,51 @@ schedule = [
                 result: ""
             },
             // {
-            //     category: "mens-double",
-            //     player1: ["Tanuman Ghosh", "Om Mestry"],
-            //     player2: ["TBD", "TBD"],
-            //     willing_team: 'player2',
-            //     score1: [0,0,0],
-            //     score2: [0,0,0],
-            //     result: ""
-            // }   //!
-        ]
-    },
-    {
-        day: "Friday",
-        date: "12 Jan",
-        match_type: "Group Stages",
-        matches: [
+                //     category: "mens-double",
+                //     player1: ["Tanuman Ghosh", "Om Mestry"],
+                //     player2: ["TBD", "TBD"],
+                //     willing_team: 'player2',
+                //     score1: [0,0,0],
+                //     score2: [0,0,0],
+                //     result: ""
+                // }   //!
+            ]
+        },
+        {
+            day: "Friday",
+            date: "12 Jan",
+            match_type: "Group Stages",
+            matches: [
+                {
+                    category: "mens-single",
+                    player1: "Suprovo Ghosh",
+                    player2: "Mayur Shende",
+                score1: [21,21,0],
+                score2: [7,11,0],
+                result: ""
+            },
             {
-                category: "mens-single",
-                player1: "Suprovo Ghosh",
-                player2: "Mayur Shende",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                category: "mens-double",
+                player1: ["Santosh Bhujbal", "Rajesh Parmar"],
+                player2: ["Bikram Keshari Pradhan", "Mayur Shende"],
+                score1: [10,13,0],
+                score2: [21,21,0],
+                result: ""
+            },
+            {
+                category: "womens-single",
+                player1: "Swati Rokade",
+                player2: "Samruddhi Bhandare",
+                score1: [3,12,0],
+                score2: [15,15,0],
+                result: ""
+            },
+            {
+                category: "mens-double",
+                player1: ["Chayan Mondal", "Partha Pratim Deka"],
+                player2: ["Manish Kataria", "Suvas Chaudhury"],
+                score1: [21,21,0],
+                score2: [4,6,0],
                 result: ""
             },
             {
@@ -397,30 +421,6 @@ schedule = [
                 category: "mens-single",
                 player1: "Rahul Suresh Gaikwad",
                 player2: "Pushpak Pandey",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "womens-single",
-                player1: "Swati Rokade",
-                player2: "Samruddhi Bhandare",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-double",
-                player1: ["Chayan Mondal", "Partha Pratim Deka"],
-                player2: ["Manish Kataria", "Suvas Chaudhury"],
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-double",
-                player1: ["Santosh Bhujbal", "Rajesh Parmar"],
-                player2: ["Bikram Keshari Pradhan", "Mayur Shende"],
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""

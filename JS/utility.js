@@ -113,18 +113,9 @@ function CalculatePoints(category){
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
         
-        // to get gender
-        switch (category) {
-            case 'mens-single':gender = ['male'];break;
-            case 'womens-single':gender = ['female'];break;
-            case 'mens-double':gender = ['male','male'];break;
-            case 'womens-double':gender = ['female','female'];break;
-            case 'mix-double':gender = ['male','female'];break;
-            default:break;
-        }
-        // if female then max score=15 instead of 21; this data feeded to CalculatePoints_each()
-        if (gender.includes('female')){gender='female';}
-        else {gender='male;'}
+        // if womens-single and group stages then `max_score_round`=15 instead of 21; this data feeded to CalculatePoints_each()
+        if(category=='womens-single' && match_type == 'Group Stages'){max_score_round=15;}
+        else{max_score_round=21;}
 
         score1 = [score1].flat()
         score2 = [score2].flat()
@@ -141,7 +132,7 @@ function CalculatePoints(category){
             console.log("P1 : ", p1_data.name, " P2 : ", p2_data.name);
             if (category.includes('single')){
                 console.log("Before:: p1_points: ", p1_data.points_singles, " p2_points: ", p2_data.points_singles);
-                [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2, gender);
+                [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2, max_score_round);
                 
                 // integrating willing team idea
                 if ('willing_team' in schedule[d].matches[m]){
@@ -192,10 +183,8 @@ function CalculatePoints(category){
 
 }
 
-function CalculatePoints_each(score1, score2, gender='male'){
+function CalculatePoints_each(score1, score2, max_score_round=21){
     // For the logic for points, see `Readme.md`
-    if (gender == 'female'){max_score_round = 15;}
-    else {max_score_round = 21;}
     let max_score_diff = 0;
 
     let p1_round_win = 0;
