@@ -405,32 +405,32 @@ schedule = [
                 category: "mens-single",
                 player1: "Pushpak Pandey",
                 player2: "Partha Pratim Deka",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [2,0,0],
+                score2: [21,21,0],
                 result: ""
             },
             {
                 category: "womens-single",
                 player1: "Megha Anand",
                 player2: "Samruddhi Bhandare",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [12,15,12],
+                score2: [15,13,15],
                 result: ""
             },
             {
                 category: "mens-double",
                 player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
-                player2: ["Santosh Bhujbal", "Rajesh Parmar"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                player2: ["Manish Kataria", "Suvas Chaudhury"],
+                score1: [21,21,0],
+                score2: [13,8,0],
                 result: ""
             },
             {
                 category: "mens-single",
-                player1: "Gopalkrishna Prabhu",
-                player2: "Prashant Nishad",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                player1: "Pushparaj Chakravarti",
+                player2: "Manish Kataria",
+                score1: [21,21,0],
+                score2: [9,13,0],
                 result: ""
             },
             {
@@ -438,6 +438,14 @@ schedule = [
                 match_type: "Finals",
                 player1: ["Megha Anand", "Meenakshi"],
                 player2: ["Swati Rokade", "Samruddhi Bhandare"],
+                score1: [21,21,0],
+                score2: [7,9,0],
+                result: ""
+            },
+            {
+                category: "mens-single",
+                player1: "Gopalkrishna Prabhu",
+                player2: "Prashant Nishad",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
