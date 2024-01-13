@@ -152,6 +152,7 @@ function EventCardsAll(){
 
     let j=0;
     let k=0;
+    date_cons = "";
     for (let i in indices){
         i = parseInt(i);
         d = indices[i][0];
@@ -178,6 +179,8 @@ function EventCardsAll(){
         }
 
         ValidateScore(score1, score2);
+
+        if (date != date_cons){AddSection(date);date_cons=date;}
         
         if (match_type == 'Group Stages'){
             // if (i==0){AddSection("Group Stages");}

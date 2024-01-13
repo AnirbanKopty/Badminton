@@ -621,7 +621,7 @@ td .female{
 .card.game-event .schedule{
     height: 2rem;
     margin-bottom: 0.4rem;
-    font-size: 1rem;
+    font-size: 0.85rem;
 
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -637,7 +637,7 @@ td .female{
 .card.game-event .schedule .time::before{
     font-family: 'Material Symbols Outlined';
     margin-right: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     position: relative;
     
 }

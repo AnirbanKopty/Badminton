@@ -283,15 +283,7 @@ schedule = [
                 score1: [14,10,0],
                 score2: [21,21,0],
                 result: ""
-            },
-            // {
-            //     category: "mens-single",
-            //     player1: "Santosh Bhujbal",
-            //     player2: "Tathagata Ghosh",
-            //     score1: [0,0,0],
-            //     score2: [0,0,0],
-            //     result: ""
-            // }   //!
+            }
         ]
     },
     {
@@ -339,14 +331,14 @@ schedule = [
                 score2: [21,21,0],
                 result: ""
             },
-            {
-                category: "mens-single",
-                player1: "Manish Kataria",
-                player2: "Pushparaj Chakravarti",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            }
+            // {
+            //     category: "mens-single",
+            //     player1: "Manish Kataria",
+            //     player2: "Pushparaj Chakravarti",
+            //     score1: [0,0,0],
+            //     score2: [0,0,0],
+            //     result: ""
+            // }
         ]
     },
         {
