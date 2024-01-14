@@ -441,11 +441,26 @@ schedule = [
                 score1: [21,21,0],
                 score2: [7,9,0],
                 result: ""
-            },
+            }
+        ]
+    },
+    {
+        day: "Sunday",
+        date: "14 Jan",
+        match_type: "Group Stages",
+        matches: [
+            
+        ]
+    },
+    {
+        day: "Monday",
+        date: "15 Jan",
+        match_type: "Group Stages",
+        matches: [
             {
-                category: "mens-single",
-                player1: "Gopalkrishna Prabhu",
-                player2: "Prashant Nishad",
+                category: "mens-double",
+                player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
+                player2: ["Santosh Bhujbal", "Rajesh Parmar"],
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
@@ -457,12 +472,28 @@ schedule = [
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
+            },
+            {
+                category: "womens-single",
+                player1: "Megha Anand",
+                player2: "Meenakshi",
+                score1: [0,0,0],
+                score2: [0,0,0],
+                result: ""
+            },
+            {
+                category: "mens-single",
+                player1: "Gopalkrishna Prabhu",
+                player2: "Prashant Nishad",
+                score1: [0,0,0],
+                score2: [0,0,0],
+                result: ""
             }
         ]
     },
     {
-        day: "Sunday",
-        date: "14 Jan",
+        day: "Tuesday",
+        date: "16 Jan",
         match_type: "Group Stages",
         matches: [
             {
@@ -470,22 +501,6 @@ schedule = [
                 player1: ["Tanuman Ghosh", "Tathagata Ghosh"],
                 player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
                 willing_team: 'player2',
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mens-double",
-                player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
-                player2: ["Manish Kataria", "Suvas Chaudhury"],
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "womens-single",
-                player1: "Megha Anand",
-                player2: "Meenakshi",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
@@ -502,8 +517,8 @@ schedule = [
         ]
     },
     {
-        day: "Monday",
-        date: "15 Jan",
+        day: "Wednesday",
+        date: "17 Jan",
         match_type: "Semi Finals",
         matches: [
             {
@@ -558,8 +573,8 @@ schedule = [
         ]
     },
     {
-        day: "Tuesday",
-        date: "16 Jan",
+        day: "Thursday",
+        date: "18 Jan",
         match_type: "Finals",
         matches: [
             {
