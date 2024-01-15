@@ -476,16 +476,16 @@ schedule = [
             },
             {
                 category: "mens-double",
-                player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
-                player2: ["Santosh Bhujbal", "Rajesh Parmar"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                player1: ["Pushpak Pandey", "Prashant Nishad"],
+                player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
+                score1: [21,21,0],
+                score2: [18,6,0],
                 result: ""
             },
             {
                 category: "mens-double",
-                player1: ["Pushpak Pandey", "Prashant Nishad"],
-                player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
+                player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
+                player2: ["Santosh Bhujbal", "Rajesh Parmar"],
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
