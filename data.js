@@ -486,8 +486,8 @@ schedule = [
                 category: "mens-double",
                 player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
                 player2: ["Santosh Bhujbal", "Rajesh Parmar"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [6,17,0],
                 result: ""
             },
             {
