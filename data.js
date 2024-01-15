@@ -38,8 +38,9 @@ players = [
         name: "Rahul G",
         gender: "male",
         designation: "project student",
-        category: ["single", "double"],
-        partner: "Swarnim"
+        category: ["single", "double", "mixed double"],
+        partner: "Swarnim",
+        mixed_partner: "Swati Rokade"
     },
     {
         name: "Tanuman Ghosh",
@@ -65,9 +66,8 @@ players = [
         name: "Bikram Keshari Pradhan",
         gender: "male",
         designation: "PhD",
-        category: ["single", "double", "mixed double"],
-        partner: "Mayur Shende",
-        mixed_partner: "Swati Rokade"
+        category: ["single", "double"],
+        partner: "Mayur Shende"
     },
     {
         name: "Mayur Shende",
@@ -126,7 +126,7 @@ players = [
         designation: "others",
         category: ["single", "double", "mixed double"],
         partner: "Samruddhi Bhandare",
-        mixed_partner: "Bikram Keshari Pradhan"
+        mixed_partner: "Rahul G"
     },
     {
         name: "Samruddhi Bhandare",
@@ -385,14 +385,6 @@ schedule = [
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
-            },
-            {
-                category: "mens-single",
-                player1: "Rahul Suresh Gaikwad",
-                player2: "Pushpak Pandey",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
             }
         ]
     },
@@ -458,6 +450,31 @@ schedule = [
         match_type: "Group Stages",
         matches: [
             {
+                category: "mens-single",
+                player1: "Gopalkrishna Prabhu",
+                player2: "Prashant Nishad",
+                score1: [17,11,0],
+                score2: [21,21,0],
+                result: ""
+            },
+            {
+                category: "mix-double",
+                match_type: "Finals",
+                player1: ["Partha Pratim Deka", "Meenakshi"],
+                player2: ["Rahul G", "Swati Rokade"],
+                score1: [21,21,0],
+                score2: [8,15,0],
+                result: ""
+            },
+            {
+                category: "mens-single",
+                player1: "Rahul Suresh Gaikwad",
+                player2: "Pushpak Pandey",
+                score1: [17,14,0],
+                score2: [21,21,0],
+                result: ""
+            },
+            {
                 category: "mens-double",
                 player1: ["Pushparaj Chakravarti", "Gautam Upadhay"],
                 player2: ["Santosh Bhujbal", "Rajesh Parmar"],
@@ -481,14 +498,6 @@ schedule = [
                 score2: [0,0,0],
                 result: ""
             },
-            {
-                category: "mens-single",
-                player1: "Gopalkrishna Prabhu",
-                player2: "Prashant Nishad",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            }
         ]
     },
     {
@@ -501,15 +510,6 @@ schedule = [
                 player1: ["Tanuman Ghosh", "Tathagata Ghosh"],
                 player2: ["Gopalkrishna Prabhu", "Raghav Gogia"],
                 willing_team: 'player2',
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            },
-            {
-                category: "mix-double",
-                match_type: "Finals",
-                player1: ["Partha Pratim Deka", "Meenakshi"],
-                player2: ["Bikram Keshari Pradhan", "Swati Rokade"],
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
