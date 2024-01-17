@@ -113,9 +113,9 @@ function CalculatePoints(category){
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
         
-        // if womens-single and group stages then `max_score_round`=15 instead of 21; this data feeded to CalculatePoints_each()
-        if(category=='womens-single' && match_type == 'Group Stages'){max_score_round=15;}
-        else{max_score_round=21;}
+        // // if womens-single and group stages then `max_score_round`=15 instead of 21; this data feeded to CalculatePoints_each()
+        // if(category=='womens-single' && match_type == 'Group Stages'){max_score_round=15;}
+        // else{max_score_round=21;}
 
         score1 = [score1].flat()
         score2 = [score2].flat()
@@ -132,7 +132,7 @@ function CalculatePoints(category){
             console.log("P1 : ", p1_data.name, " P2 : ", p2_data.name);
             if (category.includes('single')){
                 console.log("Before:: p1_points: ", p1_data.points_singles, " p2_points: ", p2_data.points_singles);
-                [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2, max_score_round);
+                [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
                 
                 // integrating willing team idea
                 if ('willing_team' in schedule[d].matches[m]){
@@ -142,6 +142,7 @@ function CalculatePoints(category){
                 p1_data.points_singles += p1_point_match;
                 p2_data.points_singles += p2_point_match;
                 
+                console.log("willing team : ", schedule[d].matches[m].willing_team);
                 console.log("After:: p1_points: ", p1_data.points_singles, " p2_points: ", p2_data.points_singles);
 
             } else {
@@ -157,23 +158,25 @@ function CalculatePoints(category){
                     p1_data.points_mixed += p1_point_match;
                     p2_data.points_mixed += p2_point_match;
                     
+                    console.log("willing team : ", schedule[d].matches[m].willing_team);
                     console.log("After:: p1_points: ", p1_data.points_mixed, " p2_points: ", p2_data.points_mixed);
-
+                    
                 } else {
                     console.log("Before:: p1_points: ", p1_data.points_doubles, " p2_points: ", p2_data.points_doubles);
                     [p1_point_match, p2_point_match] = CalculatePoints_each(score1, score2);
-
+                    
                     // integrating willing team idea
                     if ('willing_team' in schedule[d].matches[m]){
                         if (schedule[d].matches[m].willing_team == 'player1'){p1_point_match=0;} else
                         if (schedule[d].matches[m].willing_team == 'player2'){p2_point_match=0;}
                     }
-
-                    console.log(p2_data)
+                    
+                    // console.log(p2_data)
 
                     p1_data.points_doubles += p1_point_match;
                     p2_data.points_doubles += p2_point_match;
                     
+                    console.log("willing team : ", schedule[d].matches[m].willing_team);
                     console.log("After:: p1_points: ", p1_data.points_doubles, " p2_points: ", p2_data.points_doubles);
                 }
             }
@@ -183,7 +186,7 @@ function CalculatePoints(category){
 
 }
 
-function CalculatePoints_each(score1, score2, max_score_round=21){
+function CalculatePoints_each(score1, score2){
     // For the logic for points, see `Readme.md`
     let max_score_diff = 0;
 
@@ -198,6 +201,7 @@ function CalculatePoints_each(score1, score2, max_score_round=21){
 
     // each round analysis
     for (let r in score1){
+        max_score_diff += Math.max(score1[r], score2[r]);
         score_diff_round = score1[r] - score2[r];
         if(score_diff_round > 0){p1_round_win+=1;}
         else if (score_diff_round < 0){p2_round_win+=1;}
@@ -208,7 +212,7 @@ function CalculatePoints_each(score1, score2, max_score_round=21){
     }
     
     // match result
-    max_score_diff = max_score_round * (p1_round_win+p2_round_win);
+    // max_score_diff = max_score_round * (p1_round_win+p2_round_win);
     console.log("score_diff_total : ", score_diff);
     console.log("max_score_diff : ", max_score_diff);
     if (max_score_diff!=0){

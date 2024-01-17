@@ -190,8 +190,9 @@ function AddEvent(match_no, date, time, name1, name2, gender, score1, score2, re
 
 
 
-function AddPoints(single_or_double, names, gender, points){
-    html = "<table class=\"card span2\">";
+function AddPoints(single_or_double, names, gender, points, top4or5=4){
+    if(top4or5==5){html = "<table class=\"card fiveplr span2\">";}
+    else{html = "<table class=\"card span2\">";}
     html += "<tr>";
     html += "    <th>Name</th>";
     html += "    <th>Points</th>";

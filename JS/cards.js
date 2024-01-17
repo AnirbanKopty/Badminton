@@ -142,6 +142,9 @@ function EventCards(category){
             if (k==0){AddSection('Final');}
             AddEvent("Final", date, time, player1, player2, gender, score1, score2, result_msg, 'span2');
             k+=1;
+        } else
+        {
+            AddEvent(match_type, date, time, player1, player2, gender, score1, score2, result_msg, 'span2');
         }
     }
 
@@ -198,6 +201,10 @@ function EventCardsAll(){
             eventname += ` - ${match_type}`;
             AddEvent("Final", date, time, player1, player2, gender, score1, score2, result_msg, 'span2', eventname);
             k+=1;
+        } else
+        {
+            eventname += ` - ${match_type}`;
+            AddEvent(match_type, date, time, player1, player2, gender, score1, score2, result_msg, 'span2', eventname);
         }
     }
 
@@ -248,5 +255,9 @@ function Table(category, gender) {
     sort_by_property(list, ['point'], 'descending');
     for (let j in list){names[j]=list[j].name;points[j]=list[j].point};
     
-    AddPoints(category, names, gender, points)
+    // Todo: Special case - taking top5 in case of mens-single
+    if (category=='single' && gender[0]=='male'){top4or5=5;}
+    else {top4or5=4;}
+    
+    AddPoints(category, names, gender, points, top4or5);
 }
