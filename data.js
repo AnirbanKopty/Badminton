@@ -519,16 +519,16 @@ schedule = [
                 category: "mens-double",
                 player1: ["Chayan Mondal", "Partha Pratim Deka"],
                 player2: ["Tanuman Ghosh", "Tathagata Ghosh"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [10,8,0],
                 result: ""
             },
             {
                 category: "mens-double",
                 player1: ["Suprovo Ghosh", "Shivaraj Kandhasamy"],
                 player2: ["Pushparaj Chakravarti", "Vaibhav"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [12,11,0],
                 result: ""
             },
             {
@@ -536,8 +536,8 @@ schedule = [
                 match_type: "Finals",
                 player1: "Meenakshi",
                 player2: "Samruddhi Bhandare",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [11,14,0],
                 result: ""
             },
             {
@@ -545,8 +545,8 @@ schedule = [
                 match_type: "3rd place",
                 player1: "Megha Anand",
                 player2: "Swati Rokade",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [4,4,0],
                 result: ""
             }
         ]
