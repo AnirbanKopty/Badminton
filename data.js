@@ -554,6 +554,53 @@ schedule = [
     {
         day: "Thursday",
         date: "18 Jan",
+        match_type: "Finals",
+        matches: [
+            {
+                category: "mens-double",
+                player1: ["Chayan Mondal", "Partha Pratim Deka"],
+                player2: ["Suprovo Ghosh", "Shivaraj Kandhasamy"],
+                score1: [0,0,0],
+                score2: [0,0,0],
+                result: ""
+            },
+            // {
+            //     category: "mens-double",
+            //     match_type: "3rd place",
+            //     player1: ["Pushparaj Chakravarti", "Vaibhav"],
+            //     player2: ["Tanuman Ghosh", "Tathagata Ghosh"],
+            //     score1: [0,0,0],
+            //     score2: [0,0,0],
+            //     result: ""
+            // }
+        ]
+    },
+    {
+        day: "Friday",
+        date: "19 Jan",
+        match_type: "Semi Finals",
+        matches: [
+            {
+                category: "mens-single",
+                player1: "Rohan Gaikwad",
+                player2: "Partha Pratim Deka",
+                score1: [0,0,0],
+                score2: [0,0,0],
+                result: ""
+            }
+        ]
+    },
+    {
+        day: "Saturday",
+        date: "20 Jan",
+        match_type: "Semi Finals",
+        matches: [
+
+        ]
+    },
+    {
+        day: "Sunday",
+        date: "21 Jan",
         match_type: "Semi Finals",
         matches: [
             {
@@ -564,14 +611,30 @@ schedule = [
                 score2: [0,0,0],
                 result: ""
             },
+        ]
+    },
+    {
+        day: "Monday",
+        date: "22 Jan",
+        match_type: "Finals",
+        matches: [
             {
                 category: "mens-single",
-                player1: "Rohan Gaikwad",
-                player2: "Partha Pratim Deka",
+                player1: "TBD",
+                player2: "TBD",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
-            }
+            },
+            // {
+            //     category: "mens-single",
+            //     match_type: "3rd place",
+            //     player1: "TBD",
+            //     player2: "TBD",
+            //     score1: [0,0,0],
+            //     score2: [0,0,0],
+            //     result: ""
+            // }
         ]
-    }
+    },
 ]

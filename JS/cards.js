@@ -124,7 +124,8 @@ function EventCards(category){
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
         // time = schedule[d].matches[m].time;
-        time = "6:00 PM+";
+        if ('time' in schedule[d].matches[m]){time = schedule[d].matches[m].time;}
+        else {time = "6:00 PM+";}
         result_msg = schedule[d].matches[m].result;
         
         ValidateScore(score1, score2);
