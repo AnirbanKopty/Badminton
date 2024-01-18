@@ -123,7 +123,6 @@ function EventCards(category){
         player2 = schedule[d].matches[m].player2;
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
-        // time = schedule[d].matches[m].time;
         if ('time' in schedule[d].matches[m]){time = schedule[d].matches[m].time;}
         else {time = "6:00 PM+";}
         result_msg = schedule[d].matches[m].result;
@@ -153,7 +152,7 @@ function EventCards(category){
 
 function EventCardsAll(){
     indices = GetIndicesScheduleAll();
-
+    
     let j=0;
     let k=0;
     date_cons = "";
@@ -170,8 +169,8 @@ function EventCardsAll(){
         player2 = schedule[d].matches[m].player2;
         score1 = schedule[d].matches[m].score1;
         score2 = schedule[d].matches[m].score2;
-        // time = schedule[d].matches[m].time;
-        time = "6:00 PM+";
+        if ('time' in schedule[d].matches[m]){time = schedule[d].matches[m].time;}
+        else {time = "6:00 PM+";}
         result_msg = schedule[d].matches[m].result;
         switch (category) {
             case 'mens-single':gender = 'male';eventname="Men's Single";break;

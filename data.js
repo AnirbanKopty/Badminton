@@ -560,8 +560,8 @@ schedule = [
                 category: "mens-double",
                 player1: ["Chayan Mondal", "Partha Pratim Deka"],
                 player2: ["Suprovo Ghosh", "Shivaraj Kandhasamy"],
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,10,0],
+                score2: [23,21,0],
                 result: ""
             },
             // {
@@ -584,6 +584,7 @@ schedule = [
                 category: "mens-single",
                 player1: "Rohan Gaikwad",
                 player2: "Partha Pratim Deka",
+                time: "6:40 PM+",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
