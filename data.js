@@ -580,15 +580,7 @@ schedule = [
         date: "19 Jan",
         match_type: "Semi Finals",
         matches: [
-            {
-                category: "mens-single",
-                player1: "Rohan Gaikwad",
-                player2: "Partha Pratim Deka",
-                time: "6:40 PM+",
-                score1: [0,0,0],
-                score2: [0,0,0],
-                result: ""
-            }
+            
         ]
     },
     {
@@ -604,6 +596,15 @@ schedule = [
         date: "21 Jan",
         match_type: "Semi Finals",
         matches: [
+            {
+                category: "mens-single",
+                player1: "Rohan Gaikwad",
+                player2: "Partha Pratim Deka",
+                // time: "6:40 PM+",
+                score1: [0,0,0],
+                score2: [0,0,0],
+                result: ""
+            },
             {
                 category: "mens-single",
                 player1: "Suprovo Ghosh",
