@@ -622,8 +622,8 @@ schedule = [
         matches: [
             {
                 category: "mens-single",
-                player1: "TBD",
-                player2: "TBD",
+                player1: "Suprovo Ghosh",
+                player2: "Rohan Gaikwad",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
