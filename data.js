@@ -601,16 +601,16 @@ schedule = [
                 player1: "Rohan Gaikwad",
                 player2: "Partha Pratim Deka",
                 // time: "6:40 PM+",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [21,21,0],
+                score2: [19,9,0],
                 result: ""
             },
             {
                 category: "mens-single",
                 player1: "Suprovo Ghosh",
                 player2: "Chayan Mondal",
-                score1: [0,0,0],
-                score2: [0,0,0],
+                score1: [17,21,21],
+                score2: [21,15,12],
                 result: ""
             },
         ]
