@@ -624,6 +624,7 @@ schedule = [
                 category: "mens-single",
                 player1: "Suprovo Ghosh",
                 player2: "Rohan Gaikwad",
+                time: "6:45 PM+",
                 score1: [0,0,0],
                 score2: [0,0,0],
                 result: ""
